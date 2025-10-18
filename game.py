@@ -27,7 +27,7 @@ SPEED = 20
 
 class SnakeGame:
     
-    def __init__(self, w=660, h=500):
+    def __init__(self, w=500, h=500):
         self.w = w
         self.h = h
         # init display
@@ -249,3 +249,4 @@ if __name__ == '__main__':
         
 
     pygame.quit()
+
