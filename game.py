@@ -2,6 +2,7 @@ import pygame
 import random
 from enum import Enum
 from collections import namedtuple
+from grid_view import GridView
 
 pygame.init()
 font = pygame.font.Font('arial.ttf', 25)
@@ -33,9 +34,20 @@ class SnakeGame:
     def __init__(self, w=500, h=500):
         self.w = w
         self.h = h
-        # init display
-        self.display = pygame.display.set_mode((self.w, self.h))
-        pygame.display.set_caption('Snake')
+        # Create grid view
+        self.grid_view = GridView()
+        
+        # Initialize pygame
+        if not pygame.get_init():
+            pygame.init()
+        
+        # Create wider display to accommodate both game and grid view
+        self.display = pygame.display.set_mode((self.w + self.grid_view.surface.get_width(), max(self.h, self.grid_view.surface.get_height())))
+        
+        pygame.display.set_caption('Snake Game with Grid View')
+        
+        
+        
         self.clock = pygame.time.Clock()
         
         # init game state
@@ -198,6 +210,7 @@ class SnakeGame:
     def _update_ui(self):
         self.display.fill(BLACK)
         
+        # Draw main game
         for i, pt in enumerate(self.snake):
             if i == 0:
                 outer = HEAD_COLOR
@@ -212,6 +225,11 @@ class SnakeGame:
         
         text = font.render("Score: " + str(self.score), True, WHITE)
         self.display.blit(text, [0, 0])
+
+        # Draw grid view on the right side
+        grid_surface = self.grid_view.update(self)
+        self.display.blit(grid_surface, (self.w + 10, 0))
+        
         pygame.display.flip()
         
     def _move(self, direction):
@@ -244,7 +262,9 @@ class SnakeGame:
             
 
 if __name__ == '__main__':
-    game = SnakeGame()
+    # game = SnakeGame()
+    game = SnakeGame(w=500, h=500)  # Main game area 500x500
+    # pygame.display.set_mode((1000, 500))
     
     # game loop
     while True:
