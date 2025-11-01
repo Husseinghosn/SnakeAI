@@ -59,8 +59,10 @@ class GridProcessor:
         return centered
     
     def get_normalized_input(self, snake, food, direction):
+        
         snake_grid = self.create_snake_grid(snake)
         food_grid = self.create_food_grid(food)
+
         rotated_snake = self.rotate_grid(snake_grid, direction)
         rotated_food = self.rotate_grid(food_grid, direction)
 
@@ -68,9 +70,14 @@ class GridProcessor:
         head_x, head_y = int(head.x // self.block_size), int(head.y // self.block_size)
 
         centered_snake = self.center_grid(rotated_snake, (head_x, head_y))
-        centered_food = self.center_grid(rotated_food, (head_x, head_y))
 
-        return {
-            "snake_grid": centered_snake,
-            "food_grid": centered_food
-        }
+        # Make food relative to centered snake
+        food_x, food_y = int(food.x // self.block_size), int(food.y // self.block_size)
+        offset_x = food_x - head_x + self.grid_size // 2
+        offset_y = food_y - head_y + self.grid_size // 2
+
+        centered_food = np.full((self.grid_size, self.grid_size), -1)
+        if 0 <= offset_x < self.grid_size and 0 <= offset_y < self.grid_size:
+            centered_food[offset_y][offset_x] = 1
+
+        return {"snake_grid": centered_snake, "food_grid": centered_food}

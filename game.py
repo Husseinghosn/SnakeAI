@@ -44,7 +44,7 @@ class SnakeGame:
         if not pygame.get_init():
             pygame.init()
         
-        self.display = pygame.display.set_mode((self.w + self.grid_view.surface.get_width(), max(self.h, self.grid_view.surface.get_height())))
+        self.display = pygame.display.set_mode((self.w + 300, max(self.h, self.grid_view.surface.get_height()) + 100))
         
         pygame.display.set_caption('Snake Game with Grid View')
         
@@ -152,8 +152,8 @@ class SnakeGame:
 
         ai_input = self.get_ai_input()
         #print these to check out the outputs of the grids
-        # print(f"Snake Grid:\n{ai_input['snake_grid']}")
-        # print(f"Food Grid:\n{ai_input['food_grid']}")
+        print(f"Snake Grid:\n{ai_input['snake_grid']}")
+        print(f"Food Grid:\n{ai_input['food_grid']}")
         return game_over, self.score
         
         
@@ -188,9 +188,13 @@ class SnakeGame:
         self.display.blit(text, [0, 0])
 
         # Draw grid view on the right side
-        grid_surface = self.grid_view.update(self)
-        self.display.blit(grid_surface, (self.w + 10, 0))
+        # grid_surface = self.grid_view.update(self)
         
+        
+        ai_input = self.grid_processor.get_normalized_input(self.snake, self.food, self.direction)
+        grid_surface = self.grid_view.update(snake_grid = ai_input["snake_grid"], food_grid = ai_input["food_grid"])
+
+        self.display.blit(grid_surface, (self.w + 10, 0))
         pygame.display.flip()
         
     def _move(self, direction):
