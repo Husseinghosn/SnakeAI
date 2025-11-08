@@ -5,6 +5,8 @@ from collections import namedtuple
 from grid_processor import GridProcessor
 from grid_view import GridView
 import numpy as np
+import torch
+from AI import load_trained_model
 
 pygame.init()
 font = pygame.font.Font('arial.ttf', 25)
@@ -45,11 +47,7 @@ class SnakeGame:
             pygame.init()
         
         self.display = pygame.display.set_mode((self.w + 300, max(self.h, self.grid_view.surface.get_height()) + 100))
-        
         pygame.display.set_caption('Snake Game with Grid View')
-        
-        
-        
         self.clock = pygame.time.Clock()
         
         # init game state
@@ -74,6 +72,11 @@ class SnakeGame:
 
         self.pressed_direction = None
         
+        # AI integration
+        self.ai_mode = False
+        self.ai_model = None
+        self.ai_move_counter = 0
+        
     def _opposite(self, d1, d2):
         return (d1 == Direction.LEFT and d2 == Direction.RIGHT) or \
                (d1 == Direction.RIGHT and d2 == Direction.LEFT) or \
@@ -93,22 +96,35 @@ class SnakeGame:
                 pygame.quit()
                 quit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    new_dir = Direction.LEFT
-                elif event.key == pygame.K_RIGHT:
-                    new_dir = Direction.RIGHT
-                elif event.key == pygame.K_UP:
-                    new_dir = Direction.UP
-                elif event.key == pygame.K_DOWN:
-                    new_dir = Direction.DOWN
-                else:
-                    new_dir = None
+                # Toggle AI mode with 'A' key
+                if event.key == pygame.K_a:
+                    self.ai_mode = not self.ai_mode
+                    if self.ai_mode and self.ai_model is None:
+                        try:
+                            self.ai_model = load_trained_model()
+                            print("AI model loaded!")
+                        except Exception as e:
+                            print(f"Failed to load AI model: {e}")
+                            self.ai_mode = False
+                    print(f"AI mode: {self.ai_mode}")
 
-                # set pressed_direction only if not reversing 180°
-                if new_dir and not self._opposite(self.direction, new_dir):
-                    self.pressed_direction = new_dir
+                if not self.ai_mode:  # Only process keyboard input if not in AI mode
+                    if event.key == pygame.K_LEFT:
+                        new_dir = Direction.LEFT
+                    elif event.key == pygame.K_RIGHT:
+                        new_dir = Direction.RIGHT
+                    elif event.key == pygame.K_UP:
+                        new_dir = Direction.UP
+                    elif event.key == pygame.K_DOWN:
+                        new_dir = Direction.DOWN
+                    else:
+                        new_dir = None
 
-            if event.type == pygame.KEYUP:
+                    # set pressed_direction only if not reversing 180°
+                    if new_dir and not self._opposite(self.direction, new_dir):
+                        self.pressed_direction = new_dir
+
+            if event.type == pygame.KEYUP and not self.ai_mode:
                 # stop movement when released (only if releasing the current pressed key)
                 if event.key in (pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN):
                     # if the released key corresponds to the pressed_direction, stop
@@ -121,6 +137,47 @@ class SnakeGame:
                     released_dir = key_to_dir.get(event.key)
                     if released_dir == self.pressed_direction:
                         self.pressed_direction = None
+        
+        # AI movement
+        if self.ai_mode and self.ai_model is not None:
+            try:
+                # Get AI input
+                ai_input = self.get_ai_input()
+                body_grid = torch.FloatTensor(ai_input['snake_grid']).unsqueeze(0)
+                food_grid = torch.FloatTensor(ai_input['food_grid']).unsqueeze(0)
+                
+                # Get action from AI model
+                with torch.no_grad():
+                    action = self.ai_model.get_action(body_grid, food_grid)
+                
+                # Map AI action to direction
+                if action == 0:  # Forward
+                    ai_dir = self.direction
+                elif action == 1:  # Turn right
+                    dir_map = {
+                        Direction.RIGHT: Direction.DOWN,
+                        Direction.DOWN: Direction.LEFT, 
+                        Direction.LEFT: Direction.UP,
+                        Direction.UP: Direction.RIGHT
+                    }
+                    ai_dir = dir_map[self.direction]
+                else:  # Turn left (action == 2)
+                    dir_map = {
+                        Direction.RIGHT: Direction.UP,
+                        Direction.UP: Direction.LEFT,
+                        Direction.LEFT: Direction.DOWN,
+                        Direction.DOWN: Direction.RIGHT
+                    }
+                    ai_dir = dir_map[self.direction]
+                
+                # Set AI direction if not opposite to current direction
+                if not self._opposite(self.direction, ai_dir):
+                    self.pressed_direction = ai_dir
+                    self.ai_move_counter += 1
+                    
+            except Exception as e:
+                print(f"AI error: {e}")
+                self.ai_mode = False
         
         # If no key is pressed, don't move — just update UI and wait
         if not self.pressed_direction:
@@ -149,15 +206,9 @@ class SnakeGame:
         # 5. update ui and clock
         self._update_ui()
         self.clock.tick(SPEED)
-
-        ai_input = self.get_ai_input()
-        #print these to check out the outputs of the grids
-        print(f"Snake Grid:\n{ai_input['snake_grid']}")
-        print(f"Food Grid:\n{ai_input['food_grid']}")
         return game_over, self.score
         
         
-
     def _is_collision(self):
         # hits itself
         if self.head in self.snake[1:]:
@@ -187,10 +238,18 @@ class SnakeGame:
         text = font.render("Score: " + str(self.score), True, WHITE)
         self.display.blit(text, [0, 0])
 
+        # AI status
+        ai_status = "AI: ON" if self.ai_mode else "AI: OFF"
+        ai_color = (0, 255, 0) if self.ai_mode else (255, 0, 0)
+        ai_text = font.render(ai_status, True, ai_color)
+        self.display.blit(ai_text, [0, 30])
+
+        # AI move counter
+        if self.ai_mode:
+            move_text = font.render(f"AI Moves: {self.ai_move_counter}", True, WHITE)
+            self.display.blit(move_text, [0, 60])
+
         # Draw grid view on the right side
-        # grid_surface = self.grid_view.update(self)
-        
-        
         ai_input = self.grid_processor.get_normalized_input(self.snake, self.food, self.direction)
         grid_surface = self.grid_view.update(snake_grid = ai_input["snake_grid"], food_grid = ai_input["food_grid"])
 
@@ -234,8 +293,4 @@ if __name__ == '__main__':
             break
         
     print('Final Score', score)
-        
-        
-
     pygame.quit()
-
