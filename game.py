@@ -2,7 +2,8 @@ import pygame
 import random
 from enum import Enum
 from collections import namedtuple
-from grid_processor import GridProcessor
+from grid_processor_v2 import GridProcessor
+# from grid_processor import GridProcessor
 from grid_view import GridView
 import numpy as np
 
@@ -55,10 +56,10 @@ class SnakeGame:
         # init game state
         self.direction = Direction.RIGHT
         
-        self.head = Point(self.w/2, self.h/2)
-        self.snake = [self.head, 
-                      Point(self.head.x-BLOCK_SIZE, self.head.y),
-                      Point(self.head.x-(2*BLOCK_SIZE), self.head.y)]
+        # self.head = Point(self.w/2, self.h/2)
+        # self.snake = [self.head, 
+        #               Point(self.head.x-BLOCK_SIZE, self.head.y),
+        #               Point(self.head.x-(2*BLOCK_SIZE), self.head.y)]
         
 
         start_x = (self.w // 2) // BLOCK_SIZE * BLOCK_SIZE
@@ -104,14 +105,11 @@ class SnakeGame:
                 else:
                     new_dir = None
 
-                # set pressed_direction only if not reversing 180°
                 if new_dir and not self._opposite(self.direction, new_dir):
                     self.pressed_direction = new_dir
 
             if event.type == pygame.KEYUP:
-                # stop movement when released (only if releasing the current pressed key)
                 if event.key in (pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN):
-                    # if the released key corresponds to the pressed_direction, stop
                     key_to_dir = {
                         pygame.K_LEFT: Direction.LEFT,
                         pygame.K_RIGHT: Direction.RIGHT,
@@ -152,8 +150,8 @@ class SnakeGame:
 
         ai_input = self.get_ai_input()
         #print these to check out the outputs of the grids
-        print(f"Snake Grid:\n{ai_input['snake_grid']}")
-        print(f"Food Grid:\n{ai_input['food_grid']}")
+        # print(f"Snake Grid:\n{ai_input['snake_grid']}")
+        # print(f"Food Grid:\n{ai_input['food_grid']}")
         return game_over, self.score
         
         

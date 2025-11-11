@@ -23,6 +23,38 @@ class GridView:
         except:
             self.font = pygame.font.SysFont('arial', 10)
 
+    # def draw_grid(self, grid, offset_x=0, offset_y=0, is_food_grid=False):
+    #     for y in range(self.grid_size):
+    #         for x in range(self.grid_size):
+    #             value = grid[y][x]
+    #             rect = pygame.Rect(
+    #                 offset_x + x * self.cell_size,
+    #                 offset_y + y * self.cell_size,
+    #                 self.cell_size - 1,
+    #                 self.cell_size - 1
+    #             )
+
+    #             if is_food_grid:
+    #                 color = self.food_color if value == 1 else self.empty_color
+    #             elif value == -1:
+    #                 color = self.empty_color
+    #             elif value == 1:
+    #                 color = self.snake_colors[0]  
+    #             elif value > 1:
+    #                 fade = max(50, 255 - (value - 1) * 10)
+    #                 color = (0, fade, 0)
+    #             else:
+    #                 color = self.empty_color  
+
+    #             pygame.draw.rect(self.surface, color, rect)
+    #             pygame.draw.rect(self.surface, self.grid_color, rect, 1)
+
+    #             text = self.font.render(str(value), True, self.text_color)
+    #             text_rect = text.get_rect(center=(
+    #                 offset_x + x * self.cell_size + self.cell_size // 2,
+    #                 offset_y + y * self.cell_size + self.cell_size // 2
+    #             ))
+    #             self.surface.blit(text, text_rect)
     def draw_grid(self, grid, offset_x=0, offset_y=0, is_food_grid=False):
         for y in range(self.grid_size):
             for x in range(self.grid_size):
@@ -34,6 +66,7 @@ class GridView:
                     self.cell_size - 1
                 )
 
+                # Determine cell color
                 if is_food_grid:
                     color = self.food_color if value == 1 else self.empty_color
                 elif value == -1:
@@ -46,16 +79,25 @@ class GridView:
                 else:
                     color = self.empty_color  
 
+                # Draw main rectangle
                 pygame.draw.rect(self.surface, color, rect)
+
+                # Add inner rectangle for food and snake head
+                if (is_food_grid and value == 1) or (not is_food_grid and value == 1):
+                    inner_rect = rect.inflate(-4, -4)
+                    inner_color = (255, 150, 150) if is_food_grid else self.snake_colors[1]
+                    pygame.draw.rect(self.surface, inner_color, inner_rect)
+
+                # Draw grid lines
                 pygame.draw.rect(self.surface, self.grid_color, rect, 1)
 
+                # Draw value numbers
                 text = self.font.render(str(value), True, self.text_color)
                 text_rect = text.get_rect(center=(
                     offset_x + x * self.cell_size + self.cell_size // 2,
                     offset_y + y * self.cell_size + self.cell_size // 2
                 ))
                 self.surface.blit(text, text_rect)
-
 
 
     def create_snake_grid(self, snake):
@@ -89,3 +131,4 @@ class GridView:
 
    
         return self.surface
+

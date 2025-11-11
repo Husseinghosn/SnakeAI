@@ -59,7 +59,6 @@ class GridProcessor:
         return centered
     
     def get_normalized_input(self, snake, food, direction):
-        
         snake_grid = self.create_snake_grid(snake)
         food_grid = self.create_food_grid(food)
 
