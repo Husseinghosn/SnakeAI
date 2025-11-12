@@ -28,11 +28,11 @@ class GridProcessor:
         if direction.name == 'UP':
             grid = np.rot90(grid, k=0)
         elif direction.name == 'RIGHT':
-            grid = np.rot90(grid, k=3)  
+            grid = np.rot90(grid, k=1)  
         elif direction.name == 'DOWN':
             grid = np.rot90(grid, k=2)
         elif direction.name == 'LEFT':
-            grid = np.rot90(grid, k=1)  
+            grid = np.rot90(grid, k=3)  
         return grid
     
     def rotate_vector(self, dx, dy, direction):
