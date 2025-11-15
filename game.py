@@ -157,16 +157,9 @@ class SnakeGame:
         
 
     def _is_collision(self):
-    # Check if head collides with any part of the body EXCEPT the tail
-            if self.head in self.snake[1:-1]:
-                return True
-    
-    # If head is at the tail position, it's NOT a collision
-            if self.head == self.snake[-1]:
-                return False
-    
-    # For any other collision with the body, return True
-            return self.head in self.snake[1:]
+        if self.head == self.snake[-1]:
+            return False
+        return self.head in self.snake[1:]
     
     def get_ai_input(self):
         return self.grid_processor.get_normalized_input(self.snake, self.food, self.direction)
