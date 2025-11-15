@@ -2,8 +2,7 @@ import pygame
 import random
 from enum import Enum
 from collections import namedtuple
-from grid_processor_v2 import GridProcessor
-# from grid_processor import GridProcessor
+from grid_processor import GridProcessor
 from grid_view import GridView
 import numpy as np
 
