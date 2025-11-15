@@ -150,8 +150,8 @@ class SnakeGame:
 
         ai_input = self.get_ai_input()
         #print these to check out the outputs of the grids
-        # print(f"Snake Grid:\n{ai_input['snake_grid']}")
-        # print(f"Food Grid:\n{ai_input['food_grid']}")
+        # print(f"Snake Grid:\n{ai_input['snake_grid']}, Direction: {self.direction}")
+        # print(f"Food Grid:\n{ai_input['food_grid']},  Direction: {self.direction}")
         return game_over, self.score
         
         

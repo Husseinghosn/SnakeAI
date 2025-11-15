@@ -11,7 +11,7 @@ class GridProcessor:
     def create_snake_grid(self, snake):
         grid = np.full((self.grid_size, self.grid_size), -1)
         for i, segment in enumerate(snake):
-            x, y = int(segment.x // self.block_size), int(segment.y // self.block_size)
+            x, y = int(segment.x // self.block_size) % self.grid_size, int(segment.y // self.block_size) % self.grid_size
             if 0 <= x < self.grid_size and 0 <= y < self.grid_size:
                 grid[y][x] = i + 1
         return grid
@@ -48,20 +48,14 @@ class GridProcessor:
 
     def center_grid(self, grid, head_pos):
         cx, cy = head_pos
-        half = self.grid_size // 2
+        center = self.grid_size // 2
 
-        grid = np.array(grid)
+        shift_x = center - cx
+        shift_y = center - cy
 
-        if grid.ndim != 2:
-            raise ValueError(f"Input grid must be a 2D array. Got {grid.ndim}")
-
-        padded = np.pad(grid, pad_width=half, mode='constant', constant_values=-1)
-        cx += half
-        cy += half
-
-        centered = padded[cy - half:cy + half + 1, cx - half:cx + half + 1]
-        return centered
-
+        rolled = np.roll(np.roll(np.array(grid), shift_y, axis=0), shift_x, axis=1)
+        return rolled
+    
     def get_normalized_input(self, snake, food, direction):
 
         # Create grids in world coordinates
