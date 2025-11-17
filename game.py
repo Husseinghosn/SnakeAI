@@ -29,7 +29,7 @@ HEAD_COLOR2 = (0, 200, 0)   # new: head inner color (darker green)
 
 
 BLOCK_SIZE = 20
-SPEED = 20
+SPEED = 500
 
 class SnakeGame:
     
