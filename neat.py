@@ -78,15 +78,6 @@ class Genome:
         output_nodes.sort(key=lambda x: x.id)
         return [node.value for node in output_nodes]
         
-    def mutate_weights(self, rate=0.8, perturb_strength=0.5):
-        for conn in self.connections.values():
-            if random.random() < rate:
-                if random.random() < 0.1:
-                    conn.weight = random.uniform(-2, 2)
-                else:
-                    conn.weight += random.gauss(0, perturb_strength)
-                    conn.weight = max(-2, min(2, conn.weight))
-                    
     def mutate_add_connection(self, innovation_counter, max_attempts=20):
         nodes = list(self.nodes.values())
         
@@ -149,11 +140,10 @@ class Genome:
         return has_path(to_node, from_node)
         
     def mutate(self, innovation_counter, node_counter):
-        self.mutate_weights()
         
         if random.random() < 0.05:
             self.mutate_add_connection(innovation_counter)
-            
+              
         if random.random() < 0.03:
             self.mutate_add_node(innovation_counter, node_counter)
             

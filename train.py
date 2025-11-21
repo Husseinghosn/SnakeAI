@@ -1,29 +1,44 @@
 # train.py
 import time
+import copy
 from snake_ai import SnakeAI
 from neat import NEAT
 from rl import ReinforcementTrainer
 
-def run_neat_evolution(generations=100):
-    """Run NEAT evolution to create initial AI"""
-    print("=== NEAT Evolution Phase ===")
+def run_lamarckian_evolution(generations=100, rl_episodes_per_genome=2):
+    """Run NEAT evolution with Lamarckian weight updates via RL"""
+    print("=== Snake AI Training - Lamarckian Evolution ===")
     snake_ai = SnakeAI()
     neat = NEAT(snake_ai.input_size, snake_ai.output_size, population_size=50)
     
     def fitness_function(genome):
+        trainer = ReinforcementTrainer(
+            genome=copy.deepcopy(genome),  
+            learning_rate=0.02,
+            discount_factor=0.9,
+            exploration_rate=0.1
+        )
+        
+        trainer.fine_tune_genome(episodes=rl_episodes_per_genome)
+        
+        for conn_key in genome.connections:
+            genome.connections[conn_key].weight = trainer.genome.connections[conn_key].weight
+        
         score, total_steps = snake_ai.play_game(genome, render=False, training=True)
         fitness = snake_ai.calculate_fitness(score, total_steps, 0, 50 + score)
+        
         return fitness
     
-    print(f"Starting NEAT evolution: {generations} generations")
+    print(f"Starting Lamarckian Evolution")
+    print(f"Generations: {generations}")
     print(f"Population: {neat.population_size}")
-    print("Max steps: 50 + apples_eaten (max 625)")
+    print(f"RL episodes per genome: {rl_episodes_per_genome}")
+    print("Method: NEAT evolves structure + RL adjusts weights")
     
     start_time = time.time()
     
     for gen in range(generations):
         current_gen_best_fitness = neat.run_generation(fitness_function)
-        current_best_score = int(current_gen_best_fitness / 1000)
         
         print(f"Gen {gen:3d}: Fitness = {current_gen_best_fitness:8.2f}")
         
@@ -33,48 +48,19 @@ def run_neat_evolution(generations=100):
     neat.save_best("best_snake_final.pkl")
     
     elapsed_time = time.time() - start_time
-    print(f"NEAT evolution completed")
+    print(f"Training completed")
     print(f"Generations: {generations}")
     print(f"Best fitness: {neat.best_fitness:.2f}")
-    print(f"Best score: {int(neat.best_fitness / 1000)}")
     print(f"Time: {elapsed_time:.2f}s")
-    
-    return neat.best_genome_overall
-
-def run_rl_finetuning(genome, episodes=100):
-    """Fine-tune NEAT AI with reinforcement learning"""
-    print("\n=== RL Fine-tuning Phase ===")
-    trainer = ReinforcementTrainer(
-        genome=genome,
-        learning_rate=0.01,
-        discount_factor=0.95,
-        exploration_rate=0.2
-    )
-    
-    best_score = trainer.train(episodes=episodes, render=False, speed=1000)
-    
-    return trainer.genome, best_score
+    print(f"Saved: best_snake_final.pkl")
 
 def main():
+    generations = 100
+    rl_episodes_per_genome = 2
     
-        
-    neat_generations = 100
-    rl_episodes = 100
-        
-    # Run NEAT evolution
-    best_genome = run_neat_evolution(neat_generations)
-        
-    # Run RL fine-tuning
-    final_genome, best_score = run_rl_finetuning(best_genome, rl_episodes)
-        
-        # Save final model
-    with open("snake_ai_final.pkl", 'wb') as f:
-        import pickle
-        pickle.dump(final_genome, f)
-        
-    print(f"Training completed. Final model saved to 'snake_ai_final.pkl'")
-    print(f"Best RL score: {best_score}")
-        
+    run_lamarckian_evolution(generations, rl_episodes_per_genome)
+    
+    print(f"Training completed. Best genome saved to 'best_snake_final.pkl'")
 
 if __name__ == "__main__":
     main()
