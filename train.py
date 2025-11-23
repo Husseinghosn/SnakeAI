@@ -3,10 +3,25 @@ import time
 from snake_ai import SnakeAI
 from neat import NEAT
 from rl import ReinforcementTrainer
+import logging
+import logging.handlers
 
-def run_neat_evolution(generations=100):
+logger = logging.getLogger("snake_train")
+logger.setLevel(logging.INFO)
+
+fh = logging.handlers.RotatingFileHandler("training.log", maxBytes=1_000_000, backupCount=5, encoding="utf-8")
+fh.setLevel(logging.INFO)
+
+ch = logging.StreamHandler()
+ch.setLevel(logging.INFO)
+
+if not logger.handlers:
+    logger.addHandler(fh)
+    logger.addHandler(ch)
+
+def run_neat_evolution(generations=1000):
     """Run NEAT evolution to create initial AI"""
-    print("=== NEAT Evolution Phase ===")
+    logger.info("=== NEAT Evolution Phase ===")
     snake_ai = SnakeAI()
     neat = NEAT(snake_ai.input_size, snake_ai.output_size, population_size=50)
     
@@ -15,17 +30,18 @@ def run_neat_evolution(generations=100):
         fitness = snake_ai.calculate_fitness(score, total_steps, 0, 50 + score, four_left_turns, four_right_turns, over_25_same_dir_count)
         return fitness
     
-    print(f"Starting NEAT evolution: {generations} generations")
-    print(f"Population: {neat.population_size}")
-    print("Max steps: 50 + apples_eaten (max 625)")
+    logger.info(f"Starting NEAT evolution: {generations} generations")
+    logger.info(f"Population: {neat.population_size}")
+    logger.info("Max steps: 50 + apples_eaten (max 625)")
     
     start_time = time.time()
     
     for gen in range(generations):
+        gen_start_time = time.time()
         current_gen_best_fitness = neat.run_generation(fitness_function)
         current_best_score = int(current_gen_best_fitness / 1000)
         
-        print(f"Gen {gen:3d}: Fitness = {current_gen_best_fitness:8.2f}")
+        logger.info(f"Gen {gen:3d}: Fitness = {current_gen_best_fitness:8.2f} | Time: {time.time() - gen_start_time:.2f}s ")
         
         if neat.best_genome_overall and gen % 10 == 0:
             neat.save_best("best_snake_current.pkl")
@@ -33,17 +49,17 @@ def run_neat_evolution(generations=100):
     neat.save_best("best_snake_final.pkl")
     
     elapsed_time = time.time() - start_time
-    print(f"NEAT evolution completed")
-    print(f"Generations: {generations}")
-    print(f"Best fitness: {neat.best_fitness:.2f}")
-    print(f"Best score: {int(neat.best_fitness / 1000)}")
-    print(f"Time: {elapsed_time:.2f}s")
+    logger.info(f"NEAT evolution completed")
+    logger.info(f"Generations: {generations}")
+    logger.info(f"Best fitness: {neat.best_fitness:.2f}")
+    logger.info(f"Best score: {int(neat.best_fitness / 1000)}")
+    logger.info(f"Time: {elapsed_time:.2f}s")
     
     return neat.best_genome_overall
 
 def run_rl_finetuning(genome, episodes=100):
     """Fine-tune NEAT AI with reinforcement learning"""
-    print("\n=== RL Fine-tuning Phase ===")
+    logger.info("\n=== RL Fine-tuning Phase ===")
     trainer = ReinforcementTrainer(
         genome=genome,
         learning_rate=0.01,
@@ -72,8 +88,8 @@ def main():
         import pickle
         pickle.dump(final_genome, f)
         
-    print(f"Training completed. Final model saved to 'snake_ai_final.pkl'")
-    print(f"Best RL score: {best_score}")
+    logger.info(f"Training completed. Final model saved to 'snake_ai_final.pkl'")
+    logger.info(f"Best RL score: {best_score}")
         
 
 if __name__ == "__main__":

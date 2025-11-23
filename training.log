@@ -1,0 +1,6 @@
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 100 generations
+Population: 50
+Max steps: 50 + apples_eaten (max 625)
+Gen   0: Fitness =  1452.83 | Time: 54.11s 
+Gen   1: Fitness =     5.10 | Time: 54.97s 

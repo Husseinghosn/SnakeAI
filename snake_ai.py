@@ -42,7 +42,7 @@ class SnakeAI:
     
     def play_game(self, genome, render=True, speed=50, training=False):
         """Play a single game with given genome"""
-        game = SnakeGame(w=500, h=500)
+        game = SnakeGame(w=380, h=380)
         
         max_steps_without_food = 50
         steps_since_food = 0
