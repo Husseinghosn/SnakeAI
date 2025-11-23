@@ -11,8 +11,8 @@ def run_neat_evolution(generations=100):
     neat = NEAT(snake_ai.input_size, snake_ai.output_size, population_size=50)
     
     def fitness_function(genome):
-        score, total_steps = snake_ai.play_game(genome, render=False, training=True)
-        fitness = snake_ai.calculate_fitness(score, total_steps, 0, 50 + score)
+        score, total_steps, four_left_turns, four_right_turns, over_25_same_dir_count = snake_ai.play_game(genome, render=False, training=True)
+        fitness = snake_ai.calculate_fitness(score, total_steps, 0, 50 + score, four_left_turns, four_right_turns, over_25_same_dir_count)
         return fitness
     
     print(f"Starting NEAT evolution: {generations} generations")
