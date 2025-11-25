@@ -12,21 +12,8 @@ def run_lamarckian_evolution(generations=100, rl_episodes_per_genome=2):
     neat = NEAT(snake_ai.input_size, snake_ai.output_size, population_size=50)
     
     def fitness_function(genome):
-        trainer = ReinforcementTrainer(
-            genome=copy.deepcopy(genome),  
-            learning_rate=0.02,
-            discount_factor=0.9,
-            exploration_rate=0.1
-        )
-        
-        trainer.fine_tune_genome(episodes=rl_episodes_per_genome)
-        
-        for conn_key in genome.connections:
-            genome.connections[conn_key].weight = trainer.genome.connections[conn_key].weight
-        
-        score, total_steps = snake_ai.play_game(genome, render=False, training=True)
-        fitness = snake_ai.calculate_fitness(score, total_steps, 0, 50 + score)
-        
+        score, total_steps, four_left_turns, four_right_turns, over_25_same_dir_count = snake_ai.play_game(genome, render=False, training=True)
+        fitness = snake_ai.calculate_fitness(score, total_steps, 0, 50 + score, four_left_turns, four_right_turns, over_25_same_dir_count)
         return fitness
     
     print(f"Starting Lamarckian Evolution")
