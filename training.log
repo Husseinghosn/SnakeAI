@@ -1,6 +1,146 @@
+
 === NEAT Evolution Phase ===
 Starting NEAT evolution: 100 generations
 Population: 50
 Max steps: 50 + apples_eaten (max 625)
-Gen   0: Fitness =  1452.83 | Time: 54.11s 
-Gen   1: Fitness =     5.10 | Time: 54.97s 
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 100 generations
+Population: 50
+Max steps: 50 + apples_eaten (max 625)
+Gen   0: Fitness =     5.10 | Time: 63.09s 
+Gen   1: Fitness =     5.10 | Time: 57.56s 
+Gen   2: Fitness =   442.15 | Time: 53.66s 
+Gen   3: Fitness =  1446.60 | Time: 61.26s 
+Gen   4: Fitness =  1451.94 | Time: 60.35s 
+Gen   5: Fitness =     5.10 | Time: 57.21s 
+Gen   6: Fitness =  1449.27 | Time: 46.45s 
+Gen   7: Fitness =  1427.02 | Time: 57.21s 
+Gen   8: Fitness =  1447.49 | Time: 51.33s 
+Gen   9: Fitness =  1449.27 | Time: 53.49s 
+Gen  10: Fitness =  1448.38 | Time: 57.60s 
+Gen  11: Fitness =  1452.83 | Time: 50.10s 
+Gen  12: Fitness =   449.27 | Time: 50.13s 
+Gen  13: Fitness =     5.10 | Time: 50.70s 
+Gen  14: Fitness =  1448.38 | Time: 50.37s 
+Gen  15: Fitness =  2476.06 | Time: 50.70s 
+Gen  16: Fitness =  1421.68 | Time: 52.09s 
+Gen  17: Fitness =  1451.94 | Time: 52.16s 
+Gen  18: Fitness =  1428.80 | Time: 49.70s 
+Gen  19: Fitness =  1418.12 | Time: 49.85s 
+Gen  20: Fitness =  2460.48 | Time: 51.24s 
+Gen  21: Fitness =     5.10 | Time: 52.66s 
+Gen  22: Fitness =   427.02 | Time: 50.81s 
+Gen  23: Fitness =   433.25 | Time: 51.71s 
+Gen  24: Fitness =  1425.24 | Time: 53.54s 
+Gen  25: Fitness =  1440.37 | Time: 53.34s 
+Gen  26: Fitness =     5.10 | Time: 50.42s 
+Gen  27: Fitness =  1425.24 | Time: 50.54s 
+Gen  28: Fitness =  2452.50 | Time: 50.71s 
+Gen  29: Fitness =     5.10 | Time: 49.51s 
+Gen  30: Fitness =   450.16 | Time: 51.82s 
+Gen  31: Fitness =   436.81 | Time: 53.37s 
+Gen  32: Fitness =  2474.16 | Time: 51.15s 
+Gen  33: Fitness =  2456.30 | Time: 50.00s 
+Gen  34: Fitness =   447.49 | Time: 48.55s 
+Gen  35: Fitness =   444.82 | Time: 50.16s 
+Gen  36: Fitness =  2463.90 | Time: 50.44s 
+Gen  37: Fitness =  2482.52 | Time: 49.87s 
+Gen  38: Fitness =  1445.71 | Time: 50.16s 
+Gen  39: Fitness =  1451.05 | Time: 49.73s 
+Gen  40: Fitness =  3481.70 | Time: 48.78s 
+Gen  41: Fitness =  1441.26 | Time: 51.50s 
+Gen  42: Fitness =  1444.82 | Time: 52.76s 
+Gen  43: Fitness =     5.10 | Time: 51.27s 
+Gen  44: Fitness =  1472.64 | Time: 51.81s 
+Gen  45: Fitness =  1449.27 | Time: 50.06s 
+Gen  46: Fitness =   429.69 | Time: 51.84s 
+Gen  47: Fitness =   437.70 | Time: 51.46s 
+Gen  48: Fitness =   422.57 | Time: 49.62s 
+Gen  49: Fitness =   451.94 | Time: 49.41s 
+Gen  50: Fitness =  1451.94 | Time: 50.06s 
+Gen  51: Fitness =   452.83 | Time: 51.59s 
+Gen  52: Fitness =   450.16 | Time: 50.57s 
+Gen  53: Fitness =  1452.83 | Time: 52.31s 
+Gen  54: Fitness =  1422.57 | Time: 51.70s 
+Gen  55: Fitness =  2460.48 | Time: 51.11s 
+Gen  56: Fitness =   426.13 | Time: 50.34s 
+Gen  57: Fitness =   441.26 | Time: 52.19s 
+Gen  58: Fitness =     5.10 | Time: 49.01s 
+Gen  59: Fitness =     5.10 | Time: 51.14s 
+Gen  60: Fitness =     5.10 | Time: 50.82s 
+Gen  61: Fitness =  3474.99 | Time: 51.31s 
+Gen  62: Fitness =  1451.94 | Time: 51.29s 
+Gen  63: Fitness =     5.10 | Time: 49.41s 
+Gen  64: Fitness =  1452.83 | Time: 49.75s 
+Gen  65: Fitness =     5.10 | Time: 49.74s 
+Gen  66: Fitness =  1442.15 | Time: 48.42s 
+Gen  67: Fitness =  2477.58 | Time: 50.19s 
+Gen  68: Fitness =     5.10 | Time: 51.72s 
+Gen  69: Fitness =   448.38 | Time: 48.61s 
+Gen  70: Fitness =  1443.04 | Time: 50.87s 
+Gen  71: Fitness =   446.60 | Time: 49.88s 
+Gen  72: Fitness =  1451.05 | Time: 51.64s 
+Gen  73: Fitness =  1452.83 | Time: 50.15s 
+Gen  74: Fitness =     5.10 | Time: 50.81s 
+Gen  75: Fitness =  1470.74 | Time: 51.97s 
+Gen  76: Fitness =  1438.59 | Time: 50.69s 
+Gen  77: Fitness =  1451.94 | Time: 50.86s 
+Gen  78: Fitness =   452.83 | Time: 49.53s 
+Gen  79: Fitness =   448.38 | Time: 52.51s 
+Gen  80: Fitness =     5.10 | Time: 53.41s 
+Gen  81: Fitness =  2490.88 | Time: 51.31s 
+Gen  82: Fitness =     5.10 | Time: 51.12s 
+Gen  83: Fitness =   422.57 | Time: 50.94s 
+Gen  84: Fitness =   447.49 | Time: 51.57s 
+Gen  85: Fitness =   448.38 | Time: 52.00s 
+Gen  86: Fitness =  1475.68 | Time: 51.09s 
+Gen  87: Fitness =  1452.83 | Time: 49.55s 
+Gen  88: Fitness =  1451.05 | Time: 52.16s 
+Gen  89: Fitness =     5.10 | Time: 49.91s 
+Gen  90: Fitness =     5.10 | Time: 48.43s 
+Gen  91: Fitness =     5.10 | Time: 50.76s 
+Gen  92: Fitness =     5.10 | Time: 52.52s 
+Gen  93: Fitness =  2463.52 | Time: 50.87s 
+Gen  94: Fitness =  1447.49 | Time: 49.32s 
+Gen  95: Fitness =   429.69 | Time: 51.73s 
+Gen  96: Fitness =   437.70 | Time: 52.23s 
+Gen  97: Fitness =     5.10 | Time: 52.25s 
+Gen  98: Fitness =  1451.05 | Time: 50.77s 
+Gen  99: Fitness =   442.15 | Time: 51.96s 
+NEAT evolution completed
+Generations: 100
+Best fitness: 3481.70
+Best score: 3
+Time: 5147.48s
+
+=== RL Fine-tuning Phase ===
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 100 generations
+Population: 50
+Max steps: 50 + apples_eaten (max 625)
+Gen   0: Fitness =     5.10 | Time: 61.87s 
+Gen   1: Fitness =  1442.15 | Time: 53.63s 
+Gen   2: Fitness =  3479.67 | Time: 54.81s 
+Gen   3: Fitness =   451.05 | Time: 46.24s 
+Gen   4: Fitness =     5.10 | Time: 47.74s 
+Gen   5: Fitness =   448.38 | Time: 52.37s 
+Gen   6: Fitness =  1440.37 | Time: 47.60s 
+Gen   7: Fitness =  1451.94 | Time: 49.55s 
+Gen   8: Fitness =  1445.71 | Time: 41.68s 
+Gen   9: Fitness =  1423.46 | Time: 43.25s 
+Gen  10: Fitness =  1413.67 | Time: 38.65s 
+Gen  11: Fitness =  1409.22 | Time: 49.82s 
+Gen  12: Fitness =  1449.27 | Time: 48.33s 
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 2 generations
+Population: 50
+Max steps: 50 + apples_eaten (max 625)
+Gen   0: Fitness =     5.10 | Time: 67.98s 
+Gen   1: Fitness =     5.10 | Time: 57.00s 
+NEAT evolution completed
+Generations: 2
+Best fitness: 5.10
+Best score: 0
+Time: 125.00s
+
+=== RL Fine-tuning Phase ===

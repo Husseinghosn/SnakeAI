@@ -19,7 +19,7 @@ if not logger.handlers:
     logger.addHandler(fh)
     logger.addHandler(ch)
 
-def run_neat_evolution(generations=1000):
+def run_neat_evolution(generations=2):
     """Run NEAT evolution to create initial AI"""
     logger.info("=== NEAT Evolution Phase ===")
     snake_ai = SnakeAI()
@@ -74,7 +74,7 @@ def run_rl_finetuning(genome, episodes=100):
 def main():
     
         
-    neat_generations = 100
+    neat_generations = 2
     rl_episodes = 100
         
     # Run NEAT evolution
