@@ -144,3 +144,15 @@ Best score: 0
 Time: 125.00s
 
 === RL Fine-tuning Phase ===
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 1 generations
+Population: 50
+Max steps: 50 + apples_eaten (max 361)
+Gen   0: Fitness =   450.16 | Time: 61.38s 
+NEAT evolution completed
+Generations: 1
+Best fitness: 450.16
+Best score: 0
+Time: 61.40s
+
+=== RL Fine-tuning Phase ===

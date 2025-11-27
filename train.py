@@ -32,7 +32,7 @@ def run_neat_evolution(generations=2):
     
     logger.info(f"Starting NEAT evolution: {generations} generations")
     logger.info(f"Population: {neat.population_size}")
-    logger.info("Max steps: 50 + apples_eaten (max 625)")
+    logger.info("Max steps: 50 + apples_eaten (max 361)")
     
     start_time = time.time()
     
@@ -74,7 +74,7 @@ def run_rl_finetuning(genome, episodes=100):
 def main():
     
         
-    neat_generations = 2
+    neat_generations = 1
     rl_episodes = 100
         
     # Run NEAT evolution

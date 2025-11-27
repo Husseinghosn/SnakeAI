@@ -99,7 +99,7 @@ class SnakeAI:
             if score > initial_score:
                 steps_since_food = 0
                 initial_score = score
-                max_steps_without_food = min(50 + score, 625)
+                max_steps_without_food = min(50 + score, 361)
             else:
                 steps_since_food += 1
             
