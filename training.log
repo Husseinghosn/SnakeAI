@@ -156,3 +156,8 @@ Best score: 0
 Time: 61.40s
 
 === RL Fine-tuning Phase ===
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 200 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
