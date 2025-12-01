@@ -53,7 +53,7 @@ def run_lamarckian_evolution(generations=100, rl_episodes_per_genome=2):
         gen_start_time = time.time()
         current_gen_best_fitness = neat.run_generation(fitness_function)
         
-        logger.info(f"Gen {gen:3d}: Fitness = {current_gen_best_fitness:8.2f} (Score ~{current_best_score}) | Time: {time.time() - gen_start_time:.2f}s")
+        logger.info(f"Gen {gen:3d}: Fitness = {current_gen_best_fitness:8.2f}  | Time: {time.time() - gen_start_time:.2f}s")
         
         if neat.best_genome_overall and gen % 10 == 0:
             neat.save_best("best_snake_current.pkl")
