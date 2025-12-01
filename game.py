@@ -62,7 +62,8 @@ class SnakeGame:
         self.head = Point(start_x, start_y)
         self.snake = [self.head, 
                       Point(self.head.x-BLOCK_SIZE, self.head.y),
-                      Point(self.head.x-(2*BLOCK_SIZE), self.head.y)]
+                      Point(self.head.x-(2*BLOCK_SIZE), self.head.y),
+                      Point(self.head.x - (3 * BLOCK_SIZE), self.head.y)]
         
         self.score = 0
         self.food = None

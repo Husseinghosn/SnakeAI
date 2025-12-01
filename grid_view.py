@@ -6,7 +6,7 @@ class GridView:
         self.grid_size = 19
         self.cell_size = 15  # Each cell is 15 pixels
         self.width = self.cell_size * self.grid_size + 20
-        self.height = self.cell_size * self.grid_size + 40
+        self.height = self.cell_size * self.grid_size + 80  # More space for info
 
         self.surface = pygame.Surface((self.width, self.height))
 
@@ -18,13 +18,16 @@ class GridView:
         self.food_color = (255, 0, 0)
         self.empty_color = (20, 20, 20)
         self.text_color = (255, 255, 255)
+        self.apple_coord_color = (255, 255, 0)  # Yellow for apple coordinates
         
         try:
             self.title_font = pygame.font.Font('arial.ttf', 14)
             self.cell_font = pygame.font.Font('arial.ttf', 8)
+            self.info_font = pygame.font.Font('arial.ttf', 10)
         except:
             self.title_font = pygame.font.SysFont('arial', 14)
             self.cell_font = pygame.font.SysFont('arial', 8)
+            self.info_font = pygame.font.SysFont('arial', 10)
 
     def get_color_for_value(self, value):
         """Get color based on cell value"""
@@ -32,16 +35,25 @@ class GridView:
             return self.food_color
         elif value == 0:  # Empty
             return self.empty_color
-        elif value == 1:  # Snake head
-            return self.snake_head_color
-        elif value > 1:  # Snake body
-            # Gradient based on distance from head
-            fade = max(50, 255 - (value - 1) * 20)
-            return (0, fade, 0)
-        return self.empty_color
+        elif -1 < value < 0 or 0 < value:  # Body segments (normalized) or apple coordinates
+            # Body segments are normalized to [0, 1], apple coords are in [-1, 1]
+            if value > 0:  # Body segment
+                # Green gradient based on normalized value
+                intensity = int(50 + value * 205)  # 50-255 range
+                return (0, intensity, 0)
+            else:  # Apple coordinate (negative but not -1)
+                # Yellow for apple coordinates
+                intensity = int(150 + abs(value) * 105)  # 150-255 range
+                return (intensity, intensity, 0)
+        else:
+            # Edge cases - use default
+            return self.empty_color
 
     def draw_grid(self, grid):
         """Draw the merged grid"""
+        # Find the head and body positions
+        center = self.grid_size // 2
+        
         for y in range(self.grid_size):
             for x in range(self.grid_size):
                 value = grid[y][x]
@@ -49,38 +61,76 @@ class GridView:
                 
                 rect = pygame.Rect(
                     x * self.cell_size + 10,  # 10px padding
-                    y * self.cell_size + 30,  # 30px for title
+                    y * self.cell_size + 60,  # 60px for title and info
                     self.cell_size - 1,
                     self.cell_size - 1
                 )
                 
                 pygame.draw.rect(self.surface, color, rect)
                 
-                # Add inner highlight for head and food
-                if value == 1 or value == -1:
+                # Add special highlighting
+                if y == center and x == center:
+                    # Head position (now contains apple X coordinate)
+                    pygame.draw.rect(self.surface, (255, 255, 255), rect, 2)
+                    
+                    # Draw apple X coordinate
+                    text = self.cell_font.render(f"X:{value:.2f}", True, self.text_color)
+                    text_rect = text.get_rect(center=rect.center)
+                    self.surface.blit(text, text_rect)
+                    
+                elif value == -1:  # Food
                     inner_rect = rect.inflate(-3, -3)
-                    inner_color = (255, 150, 150) if value == -1 else (0, 150, 0)
-                    pygame.draw.rect(self.surface, inner_color, inner_rect)
+                    pygame.draw.rect(self.surface, (255, 150, 150), inner_rect)
+                    
+                    # Draw food marker
+                    text = self.cell_font.render("F", True, self.text_color)
+                    text_rect = text.get_rect(center=rect.center)
+                    self.surface.blit(text, text_rect)
+                    
+                elif -1 < value < 0:  # Apple Y coordinate (at body behind head)
+                    # Highlight cell with apple Y coordinate
+                    pygame.draw.rect(self.surface, (255, 200, 0), rect, 2)
+                    
+                    # Draw apple Y coordinate
+                    text = self.cell_font.render(f"Y:{value:.2f}", True, self.text_color)
+                    text_rect = text.get_rect(center=rect.center)
+                    self.surface.blit(text, text_rect)
+                    
+                elif 0 < value:  # Body segment
+                    # Draw normalized body value
+                    text = self.cell_font.render(f"{value:.1f}", True, self.text_color)
+                    text_rect = text.get_rect(center=rect.center)
+                    self.surface.blit(text, text_rect)
                 
                 # Draw grid lines
                 pygame.draw.rect(self.surface, self.grid_color, rect, 1)
-                
-                # Draw value numbers for non-empty cells
-                if value != 0:
-                    text = self.cell_font.render(str(value), True, self.text_color)
-                    text_rect = text.get_rect(center=rect.center)
-                    self.surface.blit(text, text_rect)
 
     def update(self, grid):
         self.surface.fill(self.bg_color)
         
         # Draw title
-        title = self.title_font.render("Game Grid (19x19)", True, self.text_color)
+        title = self.title_font.render("AI Input Grid (19x19)", True, self.text_color)
         self.surface.blit(title, (10, 5))
         
-        # Draw legend
-        legend = self.cell_font.render("-1=Fruit, 1=Head, >1=Body", True, (200, 200, 200))
-        self.surface.blit(legend, (10, 25))
+        
+        
+        # Find apple coordinates
+        center = self.grid_size // 2
+        apple_x = grid[center, center] if 0 <= center < self.grid_size else 0
+        apple_y = 0
+        
+        # Try to find apple Y coordinate (will be where body value 2 used to be)
+        # It could be at various positions, so we'll search for a negative value that's not -1
+        apple_y_positions = np.where((grid < 0) & (grid > -1))
+        if len(apple_y_positions[0]) > 0:
+            y_idx = apple_y_positions[0][0]
+            x_idx = apple_y_positions[1][0]
+            apple_y = grid[y_idx, x_idx]
+        
+        # Draw apple coordinate info
+        coord_text = self.info_font.render(f"Apple relative: X={apple_x:.2f}, Y={apple_y:.2f}", 
+                                          True, (255, 255, 0))
+        self.surface.blit(coord_text, (10, self.height - 20))
         
         # Draw the grid
         self.draw_grid(grid)
