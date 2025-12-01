@@ -3,13 +3,11 @@ import random
 from enum import Enum
 from collections import namedtuple
 from grid_processor import GridProcessor
-# from grid_processor import GridProcessor
 from grid_view import GridView
 import numpy as np
 
 pygame.init()
 font = pygame.font.Font('arial.ttf', 25)
-#font = pygame.font.SysFont('arial', 25)
 
 class Direction(Enum):
     RIGHT = 1
@@ -26,30 +24,27 @@ BLUE1 = (0, 0, 255)
 BLUE2 = (0, 100, 255)
 BLACK = (0,0,0)
 HEAD_COLOR = (0, 255, 0)    
-HEAD_COLOR2 = (0, 200, 0)   # new: head inner color (darker green)
-
+HEAD_COLOR2 = (0, 200, 0)  
 
 BLOCK_SIZE = 20
-SPEED = 500
+SPEED = 20
 
 class SnakeGame:
     
-    def __init__(self, w=500, h=500):
+    def __init__(self, w=380, h=380):
         self.w = w
         self.h = h
-        # Create grid processor
-        self.grid_processor = GridProcessor(grid_size=(self.w // BLOCK_SIZE), block_size=BLOCK_SIZE)
-        self.grid_view = GridView(width=self.w, height=self.h, grid_size=self.w // BLOCK_SIZE)
+        # Create grid processor with 19x19 grid (380/20 = 19)
+        self.grid_processor = GridProcessor(grid_size=19, block_size=BLOCK_SIZE)
+        self.grid_view = GridView()
         
         # Initialize pygame
         if not pygame.get_init():
             pygame.init()
         
-        self.display = pygame.display.set_mode((self.w + 500, max(self.h, self.grid_view.surface.get_height()) + 100))
+        self.display = pygame.display.set_mode((self.w + 310, self.h))
         
         pygame.display.set_caption('Snake Game with Grid View')
-        
-        
         
         self.clock = pygame.time.Clock()
         
@@ -148,10 +143,6 @@ class SnakeGame:
         self._update_ui()
         self.clock.tick(SPEED)
 
-        ai_input = self.get_ai_input()
-        #print these to check out the outputs of the grids
-        # print(f"Snake Grid:\n{ai_input['snake_grid']}, Direction: {self.direction}")
-        # print(f"Food Grid:\n{ai_input['food_grid']},  Direction: {self.direction}")
         return game_over, self.score
         
         
@@ -183,18 +174,14 @@ class SnakeGame:
         text = font.render("Score: " + str(self.score), True, WHITE)
         self.display.blit(text, [0, 0])
 
-        # Draw grid view on the right side
-        # grid_surface = self.grid_view.update(self)
-        
-        
-        ai_input = self.grid_processor.get_normalized_input(self.snake, self.food, self.direction)
-        grid_surface = self.grid_view.update(snake_grid = ai_input["snake_grid"], food_grid = ai_input["food_grid"])
+        # Get and draw the single grid
+        ai_input = self.get_ai_input()
+        grid_surface = self.grid_view.update(ai_input["grid"])
 
         self.display.blit(grid_surface, (self.w + 10, 0))
         pygame.display.flip()
         
     def _move(self, direction):
-
         x = int(self.head.x)
         y = int(self.head.y)
         if direction == Direction.RIGHT:

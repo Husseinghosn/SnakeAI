@@ -1,43 +1,49 @@
-# snake_ai.py
 import pygame
 import numpy as np
 from game import SnakeGame, Direction
 
 class SnakeAI:
     def __init__(self):
-        self.input_size = 1250
+        self.input_size = 361  # 19x19 grid = 361 inputs
         self.output_size = 3
         
     def get_state(self, game):
         """Get game state as neural network input"""
         ai_input = game.get_ai_input()
-        snake_grid_flat = ai_input["snake_grid"].flatten()
-        food_grid_flat = ai_input["food_grid"].flatten()
-        network_input = np.concatenate([snake_grid_flat, food_grid_flat])
-        network_input = np.clip(network_input, -1, 10) / 10.0
-        return network_input
+        # Flatten the 19x19 grid
+        grid_flat = ai_input["grid"].flatten()
+        
+        # Normalize values: -1 to [snake_length] -> -1.0 to 1.0
+        # Cap at 10 for snake body values (head=1, then increasing)
+        normalized = np.clip(grid_flat, -1, 10).astype(np.float32)
+        
+        # Scale to -1 to 1 range
+        # -1 remains -1, 0-10 scaled to 0-1
+        normalized = np.where(normalized == -1, -1.0, normalized / 10.0)
+        
+        return normalized
     
     def action_to_direction(self, action, current_direction):
         """Convert action index to direction"""
         if action == 0:
             return current_direction
-        elif action == 1:
-            if current_direction == Direction.RIGHT:
-                return Direction.DOWN
-            elif current_direction == Direction.DOWN:
-                return Direction.LEFT
-            elif current_direction == Direction.LEFT:
-                return Direction.UP
-            else:
-                return Direction.RIGHT
-        else:
+        elif action == 1:  # Turn left
             if current_direction == Direction.RIGHT:
                 return Direction.UP
             elif current_direction == Direction.UP:
                 return Direction.LEFT
             elif current_direction == Direction.LEFT:
                 return Direction.DOWN
-            else:
+            else:  # DOWN
+                return Direction.RIGHT
+        else:  # action == 2, Turn right
+            if current_direction == Direction.RIGHT:
+                return Direction.DOWN
+            elif current_direction == Direction.DOWN:
+                return Direction.LEFT
+            elif current_direction == Direction.LEFT:
+                return Direction.UP
+            else:  # UP
                 return Direction.RIGHT
     
     def play_game(self, genome, render=True, speed=50, training=False):
@@ -55,7 +61,7 @@ class SnakeAI:
 
             same_dir_steps = 0
             last_direction = None
-            over_25_same_dir_count = 0
+            over_19_same_dir_count = 0
             
             while True:
                 if render:
@@ -86,11 +92,10 @@ class SnakeAI:
                 if last_turns == [-1, -1, -1, -1]:
                     four_right_turns += 1
 
-                # Track consecutive same direction steps
                 if last_direction is None or new_direction == last_direction:
                     same_dir_steps += 1
-                    if same_dir_steps == 26:  # Only count once per streak
-                        over_25_same_dir_count += 1
+                    if same_dir_steps >= 20:  
+                        over_19_same_dir_count += 1
                 else:
                     same_dir_steps = 1
                 last_direction = new_direction
@@ -108,12 +113,11 @@ class SnakeAI:
                 if game_over or steps_since_food > max_steps_without_food:
                     break
             
-            return score, total_steps, four_left_turns, four_right_turns, over_25_same_dir_count
-        except:
+            return score, total_steps, four_left_turns, four_right_turns, over_19_same_dir_count
+        except Exception as e:
             print(f"Error in play_game: {e}")
             return 0, 0, 0, 0, 0
             
-
     def calculate_fitness(self, score, total_steps, steps_since_food, max_steps_without_food, four_left_turns=0, four_right_turns=0, over_25_same_dir_count=0):
         """Calculate fitness score"""
         fitness = score * 1000

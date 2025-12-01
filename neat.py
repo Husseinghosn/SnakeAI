@@ -12,7 +12,7 @@ class NodeGene:
         self.type = node_type
         self.activation = activation
         self.value = 0.0
-        
+
     def activate(self, x):
         if self.activation == 'sigmoid':
             return 1.0 / (1.0 + np.exp(-4.9 * x))
@@ -275,7 +275,7 @@ class Species:
 
 class NEAT:
     def __init__(self, input_size, output_size, population_size=100):
-        self.input_size = input_size
+        self.input_size = input_size 
         self.output_size = output_size
         self.population_size = population_size
         self.population = []
