@@ -10,18 +10,8 @@ class SnakeAI:
     def get_state(self, game):
         """Get game state as neural network input"""
         ai_input = game.get_ai_input()
-        # Flatten the 19x19 grid
         grid_flat = ai_input["grid"].flatten()
-        
-        # Normalize values: -1 to [snake_length] -> -1.0 to 1.0
-        # Cap at 10 for snake body values (head=1, then increasing)
-        normalized = np.clip(grid_flat, -1, 10).astype(np.float32)
-        
-        # Scale to -1 to 1 range
-        # -1 remains -1, 0-10 scaled to 0-1
-        normalized = np.where(normalized == -1, -1.0, normalized / 10.0)
-        
-        return normalized
+        return grid_flat.astype(np.float32)
     
     def action_to_direction(self, action, current_direction):
         """Convert action index to direction"""

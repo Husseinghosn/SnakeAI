@@ -93,6 +93,30 @@ class GridProcessor:
         
         return norm_rel_x, norm_rel_y
 
+    def normalize_body_values(self, grid):
+        """Normalize snake body values (>=3) to range [0, 1]"""
+        # Create a copy to avoid modifying the original
+        normalized_grid = grid.copy().astype(np.float32)
+        
+        # Find body cells (values >= 3)
+        body_mask = grid >= 0
+        
+        if np.any(body_mask):
+            # Get the min and max body values
+            body_values = grid[body_mask]
+            min_body = np.min(body_values)
+            max_body = np.max(body_values)
+            
+            # Normalize to [0, 1] range
+            if max_body > min_body:
+                normalized_grid[body_mask] = (body_values - min_body) / (max_body - min_body)
+            else:
+                # All body values are the same (edge case)
+                normalized_grid[body_mask] = 0.5
+        
+        # Keep food (-1), empty (0), head (1), and body behind head (2) as they are for now
+        return normalized_grid
+
     def get_normalized_input(self, snake, food, direction):
         """Create normalized input grid for neural network with apple coords"""
         # Create single merged grid
@@ -104,6 +128,9 @@ class GridProcessor:
         # Center on snake head
         centered_grid = self.center_grid(rotated_grid)
         
+        # Normalize snake body values (>=3) to [0, 1] range
+        normalized_grid = self.normalize_body_values(centered_grid)
+        
         # Get normalized relative apple coordinates
         apple_rel_x, apple_rel_y = self.get_relative_apple_coords(centered_grid)
         
@@ -112,20 +139,17 @@ class GridProcessor:
         head_y, head_x = center, center
         
         # Find the cell behind head (value = 2)
-        behind_head_y, behind_head_x = center, center + 1  # Default: cell below head in rotated view
+        behind_head_y, behind_head_x = center, center  # Initialize with center
         
         # Try to find where the body segment with value 2 is
         body_positions = np.where(centered_grid == 2)
         if len(body_positions[0]) > 0:
             behind_head_y, behind_head_x = body_positions[0][0], body_positions[1][0]
         
-        # Create a copy of the grid to modify
-        modified_grid = centered_grid.copy().astype(np.float32)
-        
         # Replace head cell (value 1) with relative apple X coordinate
-        modified_grid[head_y, head_x] = apple_rel_x
+        normalized_grid[head_y, head_x] = apple_rel_x
         
         # Replace cell behind head (value 2) with relative apple Y coordinate
-        modified_grid[behind_head_y, behind_head_x] = apple_rel_y
+        normalized_grid[behind_head_y, behind_head_x] = apple_rel_y
         
-        return {"grid": modified_grid}
+        return {"grid": normalized_grid}
