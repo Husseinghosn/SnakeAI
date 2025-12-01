@@ -166,3 +166,31 @@ Starting NEAT evolution: 200 generations
 Population: 50
 Input size: 361 (19x19 grid)
 Max steps: 50 + apples_eaten (max 361)
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 100
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 100
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 100
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 100
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
