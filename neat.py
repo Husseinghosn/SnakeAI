@@ -89,22 +89,8 @@ class Genome:
             
         output_nodes = [node for node in self.nodes.values() if node.type == 'output']
         output_nodes.sort(key=lambda x: x.id)
-<<<<<<< HEAD
         return [node.value for node in output_nodes]
         
-=======
-        return [node.value for node in output_nodes]  
-          
-    def mutate_weights(self, rate=0.8, perturb_strength=0.5):
-        for conn in self.connections.values():
-            if random.random() < rate:
-                if random.random() < 0.1:
-                    conn.weight = random.uniform(-2, 2)
-                else:
-                    conn.weight += random.gauss(0, perturb_strength)
-                    conn.weight = max(-2, min(2, conn.weight))
-                    
->>>>>>> Type-1-AI
     def mutate_add_connection(self, innovation_counter, max_attempts=20):
         nodes = list(self.nodes.values())
         
