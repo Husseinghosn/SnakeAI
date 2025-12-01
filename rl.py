@@ -104,7 +104,7 @@ class ReinforcementTrainer:
         """Train for one episode and return the final score"""
         from game import SnakeGame
         
-        game = SnakeGame(w=500, h=500)
+        game = SnakeGame(w=380, h=380)
         
         max_steps_without_food = 50
         steps_since_food = 0

@@ -99,7 +99,7 @@ class GridProcessor:
         normalized_grid = grid.copy().astype(np.float32)
         
         # Find body cells (values >= 3)
-        body_mask = grid >= 0
+        body_mask = grid >= 1
         
         if np.any(body_mask):
             # Get the min and max body values
