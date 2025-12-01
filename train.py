@@ -58,7 +58,7 @@ def run_rl_finetuning(genome, episodes=100):
 def main():
     
         
-    neat_generations = 100
+    neat_generations = 200
     rl_episodes = 100
         
     # Run NEAT evolution
