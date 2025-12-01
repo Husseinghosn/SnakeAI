@@ -1,4 +1,3 @@
-# test.py
 import pygame
 import numpy as np
 from snake_ai import SnakeAI
@@ -24,9 +23,10 @@ def test_ai(genome, num_games=5, speed=50, render=True):
     steps_per_game = []
     
     print(f"Testing AI for {num_games} games")
+    print(f"Grid size: 19x19 (361 inputs)")
     
     for game_num in range(num_games):
-        score, total_steps = snake_ai.play_game(genome, render=render, speed=speed)
+        score, total_steps, _, _, _ = snake_ai.play_game(genome, render=render, speed=speed)
         scores.append(score)
         steps_per_game.append(total_steps)
         efficiency = total_steps / score if score > 0 else total_steps
@@ -47,7 +47,8 @@ def test_ai(genome, num_games=5, speed=50, render=True):
 def analyze_genome(genome):
     """Analyze the structure of a genome"""
     print("\nGenome Analysis:")
-    print(f"Nodes: {len(genome.nodes)}")
+    print(f"Input nodes: 361 (19x19 grid)")
+    print(f"Total Nodes: {len(genome.nodes)}")
     print(f"Connections: {len(genome.connections)}")
     
     input_nodes = sum(1 for node in genome.nodes.values() if node.type == 'input')
