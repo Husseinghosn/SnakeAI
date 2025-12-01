@@ -7,25 +7,12 @@ import os
 from collections import defaultdict
 
 class NodeGene:
-    def __init__(self, input_size, output_size, population_size=100):
-        self.input_size = input_size 
-        self.output_size = output_size
-        self.population_size = population_size
-        self.population = []
-        self.species = []
-        self.generation = 0
-        self.best_fitness = 0
-        self.best_genome = None
-        self.best_genome_overall = None
-        
-        self.node_counter = self._counter(1000)
-        self.innovation_counter = self._counter(10000)
-        
-        self.speciation_threshold = 3.0
-        self.stale_species = 15
-        
-        self._create_initial_population()
-        
+    def __init__(self, node_id, node_type, activation='sigmoid'):
+        self.id = node_id
+        self.type = node_type
+        self.activation = activation
+        self.value = 0.0
+
     def activate(self, x):
         if self.activation == 'sigmoid':
             return 1.0 / (1.0 + np.exp(-4.9 * x))
@@ -298,7 +285,7 @@ class Species:
 
 class NEAT:
     def __init__(self, input_size, output_size, population_size=100):
-        self.input_size = input_size
+        self.input_size = input_size 
         self.output_size = output_size
         self.population_size = population_size
         self.population = []
