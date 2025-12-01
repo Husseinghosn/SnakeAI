@@ -37,7 +37,19 @@ class Genome:
         self.connections = {}
         self.fitness = 0.0
         self.adjusted_fitness = 0.0
-        
+
+    def validate_genome(self):
+        """Validate that all connections reference existing nodes"""
+        valid = True
+        for conn in self.connections.values():
+            if conn.in_node not in self.nodes:
+                print(f"Warning: Connection references missing input node {conn.in_node}")
+                valid = False
+            if conn.out_node not in self.nodes:
+                print(f"Warning: Connection references missing output node {conn.out_node}")
+                valid = False
+        return valid
+
     def add_node(self, node):
         self.nodes[node.id] = node
         
@@ -60,7 +72,7 @@ class Genome:
                 node.value = inputs[i]
                 
         sorted_nodes = sorted(self.nodes.values(), 
-                             key=lambda x: (0 if x.type == 'input' else 1 if x.type == 'hidden' else 2, x.id))
+                            key=lambda x: (0 if x.type == 'input' else 1 if x.type == 'hidden' else 2, x.id))
         
         for node in sorted_nodes:
             if node.type == 'input':
@@ -68,7 +80,8 @@ class Genome:
                 
             total_input = 0.0
             for conn in self.connections.values():
-                if conn.out_node == node.id and conn.enabled:
+                if (conn.out_node == node.id and conn.enabled and 
+                    conn.in_node in self.nodes and conn.out_node in self.nodes):
                     in_node = self.nodes[conn.in_node]
                     total_input += in_node.value * conn.weight
                     
@@ -76,8 +89,22 @@ class Genome:
             
         output_nodes = [node for node in self.nodes.values() if node.type == 'output']
         output_nodes.sort(key=lambda x: x.id)
+<<<<<<< HEAD
         return [node.value for node in output_nodes]
         
+=======
+        return [node.value for node in output_nodes]  
+          
+    def mutate_weights(self, rate=0.8, perturb_strength=0.5):
+        for conn in self.connections.values():
+            if random.random() < rate:
+                if random.random() < 0.1:
+                    conn.weight = random.uniform(-2, 2)
+                else:
+                    conn.weight += random.gauss(0, perturb_strength)
+                    conn.weight = max(-2, min(2, conn.weight))
+                    
+>>>>>>> Type-1-AI
     def mutate_add_connection(self, innovation_counter, max_attempts=20):
         nodes = list(self.nodes.values())
         
@@ -90,12 +117,13 @@ class Genome:
                 (node1.id, node2.id) not in self.connections):
                 
                 if not self.would_create_cycle(node1.id, node2.id):
-                    weight = random.uniform(-2, 2)
-                    innovation = next(innovation_counter)
-                    conn = ConnectionGene(node1.id, node2.id, weight, True, innovation)
-                    self.add_connection(conn)
-                    return True
-                    
+                    if node1.id in self.nodes and node2.id in self.nodes:
+                        weight = random.uniform(-2, 2)
+                        innovation = next(innovation_counter)
+                        conn = ConnectionGene(node1.id, node2.id, weight, True, innovation)
+                        self.add_connection(conn)
+                        return True
+                        
         return False
         
     def mutate_add_node(self, innovation_counter, node_counter):
@@ -153,25 +181,26 @@ class Genome:
         
     def crossover(self, other):
         child = Genome()
-        
         if self.fitness > other.fitness:
             fitter_parent, other_parent = self, other
         else:
             fitter_parent, other_parent = other, self
-            
+        all_nodes = {}
         for node_id, node in fitter_parent.nodes.items():
-            child.add_node(copy.copy(node))
-            
+            all_nodes[node_id] = copy.copy(node)
+        for node_id, node in other_parent.nodes.items():
+            if node_id not in all_nodes:
+                all_nodes[node_id] = copy.copy(node)
+        for node in all_nodes.values():
+            child.add_node(node)
         all_innovations = set()
         for conn in fitter_parent.connections.values():
             all_innovations.add(conn.innovation)
         for conn in other_parent.connections.values():
             all_innovations.add(conn.innovation)
-            
         for innov in sorted(all_innovations):
             conn1 = None
             conn2 = None
-            
             for conn in fitter_parent.connections.values():
                 if conn.innovation == innov:
                     conn1 = conn
@@ -180,7 +209,6 @@ class Genome:
                 if conn.innovation == innov:
                     conn2 = conn
                     break
-                    
             if conn1 and conn2:
                 if random.random() < 0.5:
                     inherited_conn = copy.copy(conn1)
@@ -189,14 +217,14 @@ class Genome:
                     
                 if (not conn1.enabled or not conn2.enabled) and random.random() < 0.75:
                     inherited_conn.enabled = False
-                    
             elif conn1:
                 inherited_conn = copy.copy(conn1)
             else:
                 inherited_conn = copy.copy(conn2)
                 
-            child.add_connection(inherited_conn)
-            
+            if (inherited_conn.in_node in child.nodes and 
+                inherited_conn.out_node in child.nodes):
+                child.add_connection(inherited_conn)
         return child
         
     def distance(self, other, c1=1.0, c2=1.0, c3=0.4):
@@ -367,6 +395,9 @@ class NEAT:
         current_best_genome = None
         
         for genome in self.population:
+            if not genome.validate_genome():
+                genome.fitness = 0.1
+                continue
             genome.fitness = fitness_function(genome)
             
             if genome.fitness > current_gen_best_fitness:

@@ -3,6 +3,7 @@ import random
 from enum import Enum
 from collections import namedtuple
 from grid_processor import GridProcessor
+# from grid_processor import GridProcessor
 from grid_view import GridView
 import numpy as np
 
@@ -29,7 +30,7 @@ HEAD_COLOR2 = (0, 200, 0)   # new: head inner color (darker green)
 
 
 BLOCK_SIZE = 20
-SPEED = 700
+SPEED = 500
 
 class SnakeGame:
     
@@ -37,14 +38,14 @@ class SnakeGame:
         self.w = w
         self.h = h
         # Create grid processor
-        self.grid_processor = GridProcessor()
-        self.grid_view = GridView()
+        self.grid_processor = GridProcessor(grid_size=(self.w // BLOCK_SIZE), block_size=BLOCK_SIZE)
+        self.grid_view = GridView(width=self.w, height=self.h, grid_size=self.w // BLOCK_SIZE)
         
         # Initialize pygame
         if not pygame.get_init():
             pygame.init()
         
-        self.display = pygame.display.set_mode((self.w + 300, max(self.h, self.grid_view.surface.get_height()) + 100))
+        self.display = pygame.display.set_mode((self.w + 500, max(self.h, self.grid_view.surface.get_height()) + 100))
         
         pygame.display.set_caption('Snake Game with Grid View')
         
@@ -219,7 +220,7 @@ class SnakeGame:
             
 
 if __name__ == '__main__':
-    game = SnakeGame(w=500, h=500)  
+    game = SnakeGame(w=380, h=380)  
     
     # game loop
     while True:
