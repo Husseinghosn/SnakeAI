@@ -42,7 +42,7 @@ class SnakeAI:
     
     def play_game(self, genome, render=True, speed=50, training=False):
         try:
-            game = SnakeGame(w=500, h=500)
+            game = SnakeGame(w=380, h=380)
         
             max_steps_without_food = 50
             steps_since_food = 0
@@ -101,7 +101,7 @@ class SnakeAI:
                 if score > initial_score:
                     steps_since_food = 0
                     initial_score = score
-                    max_steps_without_food = min(50 + score, 625)
+                    max_steps_without_food = min(38 + score, 361)
                 else:
                     steps_since_food += 1
                 
