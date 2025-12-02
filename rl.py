@@ -1,9 +1,7 @@
 # rl.py
 import pygame
-import numpy as np
 import random
-import time
-import copy
+import numpy as np
 from collections import deque
 from snake_ai import SnakeAI
 
@@ -23,6 +21,10 @@ class ReinforcementTrainer:
         self.best_score = 0
         
         self.snake_ai = SnakeAI()
+
+        # --- NEW: track previous head position so we can reward moving toward the apple ---
+        # set when an episode starts and updated each step
+        self.last_head_pos = None
         
     def choose_action(self, state, training=True):
         if training and random.random() < self.exploration_rate:
@@ -78,34 +80,57 @@ class ReinforcementTrainer:
                 conn.weight = max(-2, min(2, conn.weight))
     
     def calculate_reward(self, game, score, game_over, steps_since_food):
-        """Calculate reward for current state"""
-        reward = 0
-        
+        """Calculate reward for current state
+
+        New: reward for moving closer to the apple (Manhattan distance).
+        - +1.0 when distance to food decreases
+        - -0.5 when distance to food increases
+        - small per-step penalty proportional to steps_since_food
+        """
+        reward = 0.0
+
+        # Big negative for losing the episode
         if game_over:
-            reward = -50  # Penalty for dying
+            reward -= 10.0
+        # Bonus for improving best score
         elif score > self.best_score:
-            reward = 50   # Reward for new high score
+            reward += 5.0
             self.best_score = score
         else:
-            # Small rewards for staying alive and finding food
-            reward = 0.1
-            
-            # Bonus for efficient movement
-            if steps_since_food < 10:
-                reward += 1
-                
-            # Penalty for wandering too long without food
-            if steps_since_food > 30:
-                reward -= 0.5
-        
+            # small step reward to encourage surviving / continuing
+            reward += 0.01
+
+        # Small penalty for wandering too long without food
+        reward -= steps_since_food * 0.01
+
+        # Reward for moving toward the apple:
+        try:
+            head = game.snake[0]
+            food = game.food
+            if food is not None and self.last_head_pos is not None:
+                # Use Manhattan distance (grid-aligned) as positions are grid-aligned Points
+                prev_dist = abs(self.last_head_pos.x - food.x) + abs(self.last_head_pos.y - food.y)
+                curr_dist = abs(head.x - food.x) + abs(head.y - food.y)
+                if curr_dist < prev_dist:
+                    reward += 1.0   # moved closer
+                elif curr_dist > prev_dist:
+                    reward -= 0.5   # moved away
+                # if unchanged, no additional reward/penalty
+        except Exception:
+            # defensive: don't crash RL training if something unexpected
+            pass
+
         return reward
     
     def train_single_episode(self, render=False, speed=1000):
         """Train for one episode and return the final score"""
         from game import SnakeGame
-        
+
         game = SnakeGame(w=500, h=500)
-        
+
+        # initialize last head position so calculate_reward can compare moves
+        self.last_head_pos = game.snake[0]
+
         max_steps_without_food = 50
         steps_since_food = 0
         total_steps = 0
@@ -140,6 +165,9 @@ class ReinforcementTrainer:
                 self.replay()
             
             state = next_state
+
+            # update last_head_pos for the next step
+            self.last_head_pos = game.snake[0]
             
             if game_over or steps_since_food > max_steps_without_food:
                 break

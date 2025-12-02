@@ -166,3 +166,228 @@ Starting NEAT evolution: 200 generations
 Population: 50
 Input size: 361 (19x19 grid)
 Max steps: 50 + apples_eaten (max 361)
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 200 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 200 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
+Gen   0: Fitness =  1479.53 (Score ~1) | Time: 9.04s
+Gen   1: Fitness =  1486.65 (Score ~1) | Time: 8.61s
+Gen   2: Fitness =  4490.76 (Score ~4) | Time: 8.61s
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 200 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
+Gen   0: Fitness =  2463.90 (Score ~2) | Time: 9.23s
+Gen   1: Fitness =  4486.14 (Score ~4) | Time: 8.55s
+Gen   2: Fitness =  3468.89 (Score ~3) | Time: 9.38s
+Gen   3: Fitness =  1492.88 (Score ~1) | Time: 8.31s
+Gen   4: Fitness =  3482.72 (Score ~3) | Time: 8.34s
+Gen   5: Fitness =  3481.09 (Score ~3) | Time: 8.34s
+Gen   6: Fitness =  4490.54 (Score ~4) | Time: 8.79s
+Gen   7: Fitness =  2481.76 (Score ~2) | Time: 8.52s
+Gen   8: Fitness =  3484.95 (Score ~3) | Time: 9.10s
+Gen   9: Fitness =  3480.48 (Score ~3) | Time: 8.37s
+Gen  10: Fitness =  7494.85 (Score ~7) | Time: 8.75s
+Gen  11: Fitness =  3485.97 (Score ~3) | Time: 8.22s
+Gen  12: Fitness =  3490.24 (Score ~3) | Time: 8.03s
+Gen  13: Fitness =  2485.56 (Score ~2) | Time: 7.50s
+Gen  14: Fitness =  3484.34 (Score ~3) | Time: 8.01s
+Gen  15: Fitness =  4493.18 (Score ~4) | Time: 7.76s
+Gen  16: Fitness =  7493.40 (Score ~7) | Time: 8.33s
+Gen  17: Fitness =  3483.73 (Score ~3) | Time: 9.09s
+Gen  18: Fitness =  3486.99 (Score ~3) | Time: 8.43s
+Gen  19: Fitness =  3483.94 (Score ~3) | Time: 8.87s
+Gen  20: Fitness =  2486.70 (Score ~2) | Time: 8.17s
+Gen  21: Fitness =  2482.14 (Score ~2) | Time: 8.23s
+Gen  22: Fitness =  1486.65 (Score ~1) | Time: 8.26s
+Gen  23: Fitness =  2470.74 (Score ~2) | Time: 8.14s
+Gen  24: Fitness =  2488.22 (Score ~2) | Time: 8.23s
+Gen  25: Fitness =  3492.88 (Score ~3) | Time: 8.11s
+Gen  26: Fitness =  2490.12 (Score ~2) | Time: 8.38s
+Gen  27: Fitness =  4491.75 (Score ~4) | Time: 8.57s
+Gen  28: Fitness =  4491.20 (Score ~4) | Time: 8.55s
+Gen  29: Fitness =  3484.55 (Score ~3) | Time: 8.78s
+Gen  30: Fitness =  7492.65 (Score ~7) | Time: 9.22s
+Gen  31: Fitness =  3483.12 (Score ~3) | Time: 8.22s
+Gen  32: Fitness =  7496.55 (Score ~7) | Time: 8.57s
+Gen  33: Fitness =  4491.64 (Score ~4) | Time: 8.76s
+Gen  34: Fitness =  7491.95 (Score ~7) | Time: 9.15s
+Gen  35: Fitness =  8499.07 (Score ~8) | Time: 9.51s
+Gen  36: Fitness =  3491.66 (Score ~3) | Time: 9.42s
+Gen  37: Fitness =  8499.16 (Score ~8) | Time: 9.59s
+Gen  38: Fitness =  9503.12 (Score ~9) | Time: 10.27s
+Gen  39: Fitness = 10510.78 (Score ~10) | Time: 10.75s
+Gen  40: Fitness = 17528.50 (Score ~17) | Time: 10.96s
+Gen  41: Fitness =  9505.02 (Score ~9) | Time: 10.12s
+Gen  42: Fitness =  9504.48 (Score ~9) | Time: 11.32s
+Gen  43: Fitness =  9505.16 (Score ~9) | Time: 10.56s
+Gen  44: Fitness = 10509.79 (Score ~10) | Time: 9.95s
+Gen  45: Fitness =  9506.16 (Score ~9) | Time: 10.29s
+Gen  46: Fitness =  9503.20 (Score ~9) | Time: 10.62s
+Gen  47: Fitness = 11514.83 (Score ~11) | Time: 10.46s
+Gen  48: Fitness = 11516.01 (Score ~11) | Time: 9.89s
+Gen  49: Fitness =  8499.19 (Score ~8) | Time: 10.15s
+Gen  50: Fitness = 11520.91 (Score ~11) | Time: 9.98s
+Gen  51: Fitness =  9503.75 (Score ~9) | Time: 9.44s
+Gen  52: Fitness =  8499.27 (Score ~8) | Time: 9.09s
+Gen  53: Fitness = 11522.33 (Score ~11) | Time: 10.04s
+Gen  54: Fitness =  8499.19 (Score ~8) | Time: 9.87s
+Gen  55: Fitness =  9504.75 (Score ~9) | Time: 9.48s
+Gen  56: Fitness = 11520.12 (Score ~11) | Time: 10.62s
+Gen  57: Fitness =  9503.58 (Score ~9) | Time: 10.21s
+Gen  58: Fitness =  8499.08 (Score ~8) | Time: 9.63s
+Gen  59: Fitness =  9505.48 (Score ~9) | Time: 10.01s
+Gen  60: Fitness = 17526.50 (Score ~17) | Time: 10.06s
+Gen  61: Fitness = 19539.77 (Score ~19) | Time: 11.20s
+Gen  62: Fitness = 10507.26 (Score ~10) | Time: 10.78s
+Gen  63: Fitness =  9503.58 (Score ~9) | Time: 11.07s
+Gen  64: Fitness =  9503.09 (Score ~9) | Time: 10.13s
+Gen  65: Fitness = 10509.02 (Score ~10) | Time: 9.22s
+Gen  66: Fitness =  9504.72 (Score ~9) | Time: 9.55s
+Gen  67: Fitness = 11513.02 (Score ~11) | Time: 9.76s
+Gen  68: Fitness = 10505.33 (Score ~10) | Time: 10.35s
+Gen  69: Fitness =  9504.56 (Score ~9) | Time: 10.19s
+Gen  70: Fitness = 10511.50 (Score ~10) | Time: 10.38s
+Gen  71: Fitness = 10506.38 (Score ~10) | Time: 10.17s
+Gen  72: Fitness = 11510.41 (Score ~11) | Time: 10.73s
+Gen  73: Fitness = 18515.84 (Score ~18) | Time: 11.84s
+Gen  74: Fitness = 18525.72 (Score ~18) | Time: 11.14s
+Gen  75: Fitness = 11514.36 (Score ~11) | Time: 11.74s
+Gen  76: Fitness = 11511.91 (Score ~11) | Time: 10.32s
+Gen  77: Fitness =  8499.35 (Score ~8) | Time: 10.01s
+Gen  78: Fitness = 17524.60 (Score ~17) | Time: 10.80s
+Gen  79: Fitness =  7496.95 (Score ~7) | Time: 9.46s
+Gen  80: Fitness = 11512.86 (Score ~11) | Time: 10.24s
+Gen  81: Fitness = 10506.10 (Score ~10) | Time: 10.13s
+Gen  82: Fitness = 11516.72 (Score ~11) | Time: 10.68s
+Gen  83: Fitness = 10511.06 (Score ~10) | Time: 10.58s
+Gen  84: Fitness =  9502.28 (Score ~9) | Time: 9.56s
+Gen  85: Fitness = 17521.40 (Score ~17) | Time: 10.80s
+Gen  86: Fitness = 11510.33 (Score ~11) | Time: 9.99s
+Gen  87: Fitness = 11523.27 (Score ~11) | Time: 11.84s
+Gen  88: Fitness = 19537.04 (Score ~19) | Time: 9.62s
+Gen  89: Fitness =  9504.23 (Score ~9) | Time: 9.69s
+Gen  90: Fitness = 19517.77 (Score ~19) | Time: 10.88s
+Gen  91: Fitness = 22533.37 (Score ~22) | Time: 11.20s
+Gen  92: Fitness = 22531.90 (Score ~22) | Time: 10.72s
+Gen  93: Fitness = 20537.04 (Score ~20) | Time: 10.12s
+Gen  94: Fitness = 18520.96 (Score ~18) | Time: 10.29s
+Gen  95: Fitness = 20527.40 (Score ~20) | Time: 11.21s
+Gen  96: Fitness = 19517.90 (Score ~19) | Time: 10.13s
+Gen  97: Fitness = 24547.30 (Score ~24) | Time: 10.40s
+Gen  98: Fitness = 20526.64 (Score ~20) | Time: 12.45s
+Gen  99: Fitness = 22531.53 (Score ~22) | Time: 11.32s
+Gen 100: Fitness = 18521.32 (Score ~18) | Time: 11.39s
+Gen 101: Fitness = 20531.69 (Score ~20) | Time: 11.00s
+Gen 102: Fitness = 19523.11 (Score ~19) | Time: 11.11s
+Gen 103: Fitness = 18517.03 (Score ~18) | Time: 11.66s
+Gen 104: Fitness = 18515.72 (Score ~18) | Time: 11.61s
+Gen 105: Fitness = 20533.83 (Score ~20) | Time: 11.45s
+Gen 106: Fitness = 19528.15 (Score ~19) | Time: 10.67s
+Gen 107: Fitness = 21535.57 (Score ~21) | Time: 13.14s
+Gen 108: Fitness = 18517.63 (Score ~18) | Time: 11.28s
+Gen 109: Fitness = 22534.65 (Score ~22) | Time: 11.19s
+Gen 110: Fitness = 23547.40 (Score ~23) | Time: 11.52s
+Gen 111: Fitness = 20532.91 (Score ~20) | Time: 10.65s
+Gen 112: Fitness = 19521.18 (Score ~19) | Time: 11.93s
+Gen 113: Fitness = 19520.09 (Score ~19) | Time: 10.90s
+Gen 114: Fitness = 22542.72 (Score ~22) | Time: 10.91s
+Gen 115: Fitness = 19522.82 (Score ~19) | Time: 11.11s
+Gen 116: Fitness = 17515.10 (Score ~17) | Time: 10.81s
+Gen 117: Fitness = 20524.19 (Score ~20) | Time: 11.00s
+Gen 118: Fitness = 18522.15 (Score ~18) | Time: 12.11s
+Gen 119: Fitness = 20528.47 (Score ~20) | Time: 11.30s
+Gen 120: Fitness = 17515.40 (Score ~17) | Time: 10.70s
+Gen 121: Fitness = 20530.92 (Score ~20) | Time: 11.58s
+Gen 122: Fitness = 20528.78 (Score ~20) | Time: 12.16s
+Gen 123: Fitness = 19529.93 (Score ~19) | Time: 11.53s
+Gen 124: Fitness = 17513.20 (Score ~17) | Time: 10.57s
+Gen 125: Fitness = 17516.00 (Score ~17) | Time: 10.65s
+Gen 126: Fitness = 18530.13 (Score ~18) | Time: 11.44s
+Gen 127: Fitness = 19523.78 (Score ~19) | Time: 12.52s
+Gen 128: Fitness = 18517.27 (Score ~18) | Time: 10.93s
+Gen 129: Fitness = 18520.13 (Score ~18) | Time: 11.18s
+Gen 130: Fitness = 19525.83 (Score ~19) | Time: 11.10s
+Gen 131: Fitness = 22532.82 (Score ~22) | Time: 11.70s
+Gen 132: Fitness = 20523.42 (Score ~20) | Time: 11.82s
+Gen 133: Fitness = 24550.89 (Score ~24) | Time: 11.38s
+Gen 134: Fitness = 22534.65 (Score ~22) | Time: 11.14s
+Gen 135: Fitness = 18522.27 (Score ~18) | Time: 11.78s
+Gen 136: Fitness = 20531.07 (Score ~20) | Time: 12.02s
+Gen 137: Fitness = 19525.01 (Score ~19) | Time: 10.99s
+Gen 138: Fitness = 17517.20 (Score ~17) | Time: 11.30s
+Gen 139: Fitness = 17512.50 (Score ~17) | Time: 10.06s
+Gen 140: Fitness = 20524.65 (Score ~20) | Time: 11.69s
+Gen 141: Fitness = 22537.95 (Score ~22) | Time: 10.83s
+Gen 142: Fitness = 21526.47 (Score ~21) | Time: 10.57s
+Gen 143: Fitness = 23534.96 (Score ~23) | Time: 11.12s
+Gen 144: Fitness = 20529.39 (Score ~20) | Time: 11.04s
+Gen 145: Fitness = 26562.43 (Score ~26) | Time: 12.11s
+Gen 146: Fitness = 18519.05 (Score ~18) | Time: 10.36s
+Gen 147: Fitness = 19524.19 (Score ~19) | Time: 12.05s
+Gen 148: Fitness = 17518.70 (Score ~17) | Time: 10.85s
+Gen 149: Fitness = 19520.91 (Score ~19) | Time: 11.33s
+Gen 150: Fitness = 17515.70 (Score ~17) | Time: 11.54s
+Gen 151: Fitness = 18517.86 (Score ~18) | Time: 10.65s
+Gen 152: Fitness = 20535.67 (Score ~20) | Time: 12.00s
+Gen 153: Fitness = 19527.61 (Score ~19) | Time: 11.74s
+Gen 154: Fitness = 17516.10 (Score ~17) | Time: 11.09s
+Gen 155: Fitness = 17519.80 (Score ~17) | Time: 11.40s
+Gen 156: Fitness = 21536.24 (Score ~21) | Time: 10.32s
+Gen 157: Fitness = 20530.92 (Score ~20) | Time: 13.75s
+Gen 158: Fitness = 22531.17 (Score ~22) | Time: 11.50s
+Gen 159: Fitness = 17518.80 (Score ~17) | Time: 10.93s
+Gen 160: Fitness = 25568.90 (Score ~25) | Time: 11.76s
+Gen 161: Fitness = 17511.00 (Score ~17) | Time: 10.85s
+Gen 162: Fitness = 21529.16 (Score ~21) | Time: 10.83s
+Gen 163: Fitness = 17512.90 (Score ~17) | Time: 10.99s
+Gen 164: Fitness = 20523.11 (Score ~20) | Time: 12.12s
+Gen 165: Fitness = 17516.80 (Score ~17) | Time: 11.75s
+Gen 166: Fitness = 19522.55 (Score ~19) | Time: 10.47s
+Gen 167: Fitness = 17513.40 (Score ~17) | Time: 10.70s
+Gen 168: Fitness = 23541.67 (Score ~23) | Time: 11.75s
+Gen 169: Fitness = 22535.02 (Score ~22) | Time: 11.94s
+Gen 170: Fitness = 17514.70 (Score ~17) | Time: 10.96s
+Gen 171: Fitness = 19523.10 (Score ~19) | Time: 11.02s
+Gen 172: Fitness = 21539.45 (Score ~21) | Time: 11.99s
+Gen 173: Fitness = 19519.54 (Score ~19) | Time: 11.34s
+Gen 174: Fitness = 20527.09 (Score ~20) | Time: 11.56s
+Gen 175: Fitness = 20525.10 (Score ~20) | Time: 12.29s
+Gen 176: Fitness = 21538.77 (Score ~21) | Time: 11.33s
+Gen 177: Fitness = 24551.53 (Score ~24) | Time: 10.81s
+Gen 178: Fitness = 18517.03 (Score ~18) | Time: 10.84s
+Gen 179: Fitness = 23549.38 (Score ~23) | Time: 10.51s
+Gen 180: Fitness = 21537.25 (Score ~21) | Time: 10.74s
+Gen 181: Fitness = 18522.75 (Score ~18) | Time: 10.56s
+Gen 182: Fitness = 19527.06 (Score ~19) | Time: 11.59s
+Gen 183: Fitness = 21524.44 (Score ~21) | Time: 12.43s
+Gen 184: Fitness = 19516.13 (Score ~19) | Time: 10.58s
+Gen 185: Fitness = 17512.60 (Score ~17) | Time: 10.79s
+Gen 186: Fitness = 18519.77 (Score ~18) | Time: 11.51s
+Gen 187: Fitness = 17514.00 (Score ~17) | Time: 10.39s
+Gen 188: Fitness = 21529.50 (Score ~21) | Time: 11.02s
+Gen 189: Fitness = 19523.23 (Score ~19) | Time: 11.80s
+Gen 190: Fitness = 18521.91 (Score ~18) | Time: 10.60s
+Gen 191: Fitness = 18527.39 (Score ~18) | Time: 11.27s
+Gen 192: Fitness = 22541.98 (Score ~22) | Time: 10.60s
+Gen 193: Fitness = 23551.35 (Score ~23) | Time: 12.15s
+Gen 194: Fitness = 22539.23 (Score ~22) | Time: 10.85s
+Gen 195: Fitness = 17515.60 (Score ~17) | Time: 11.39s
+Gen 196: Fitness = 23562.01 (Score ~23) | Time: 11.04s
+Gen 197: Fitness = 21534.39 (Score ~21) | Time: 11.16s
+Gen 198: Fitness = 18527.39 (Score ~18) | Time: 11.24s
+Gen 199: Fitness = 19528.70 (Score ~19) | Time: 10.44s
+NEAT evolution completed
+Generations: 200
+Best fitness: 26562.43
+Best score: 26
+Time: 2098.54s
+
+=== RL Fine-tuning Phase ===
