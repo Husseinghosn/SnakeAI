@@ -1,0 +1,97 @@
+Ep    1 | Score:   0 | Best:   0 | Mean(100):  0.00 | Epsilon: 1.000 | Time: 0.0s
+Ep   50 | Score:   0 | Best:   2 | Mean(100):  0.18 | Epsilon: 0.061 | Time: 1.2s
+Ep  100 | Score:   6 | Best:  15 | Mean(100):  1.50 | Epsilon: 0.050 | Time: 4.0s
+Ep  150 | Score:  15 | Best:  32 | Mean(100):  8.22 | Epsilon: 0.050 | Time: 8.7s
+Ep  200 | Score:   9 | Best:  37 | Mean(100): 14.40 | Epsilon: 0.050 | Time: 13.4s
+Ep  250 | Score:   3 | Best:  37 | Mean(100): 14.23 | Epsilon: 0.050 | Time: 18.0s
+Ep  300 | Score:  25 | Best:  37 | Mean(100): 14.70 | Epsilon: 0.050 | Time: 23.4s
+Ep  350 | Score:  24 | Best:  41 | Mean(100): 16.90 | Epsilon: 0.050 | Time: 29.4s
+Ep  400 | Score:  11 | Best:  44 | Mean(100): 17.74 | Epsilon: 0.050 | Time: 35.3s
+Ep  450 | Score:  11 | Best:  44 | Mean(100): 17.41 | Epsilon: 0.050 | Time: 40.9s
+Ep  500 | Score:  12 | Best:  44 | Mean(100): 16.37 | Epsilon: 0.050 | Time: 46.2s
+Ep  550 | Score:  14 | Best:  44 | Mean(100): 16.00 | Epsilon: 0.050 | Time: 51.6s
+Ep  600 | Score:  22 | Best:  44 | Mean(100): 15.65 | Epsilon: 0.050 | Time: 56.5s
+Ep  650 | Score:  18 | Best:  44 | Mean(100): 15.62 | Epsilon: 0.050 | Time: 61.9s
+Ep  700 | Score:  10 | Best:  44 | Mean(100): 16.46 | Epsilon: 0.050 | Time: 67.3s
+Ep  750 | Score:  30 | Best:  44 | Mean(100): 17.50 | Epsilon: 0.050 | Time: 73.0s
+Ep  800 | Score:  16 | Best:  44 | Mean(100): 17.00 | Epsilon: 0.050 | Time: 78.0s
+Ep  850 | Score:  27 | Best:  44 | Mean(100): 16.25 | Epsilon: 0.050 | Time: 83.4s
+Ep  900 | Score:   9 | Best:  44 | Mean(100): 15.72 | Epsilon: 0.050 | Time: 88.1s
+Ep  950 | Score:  13 | Best:  44 | Mean(100): 16.21 | Epsilon: 0.050 | Time: 93.6s
+Ep 1000 | Score:   8 | Best:  44 | Mean(100): 16.21 | Epsilon: 0.050 | Time: 98.4s
+Training finished in 98.4 seconds.
+Best score achieved: 44
+Best model saved to 'best_snake_dqn.pth' and curve to 'training_dqn_curve.png'.
+Ep    1 | Score:   0 | Best:   0 | Mean(100):  0.00 | Epsilon: 1.000 | Time: 0.0s
+Ep   50 | Score:   1 | Best:  34 | Mean(100):  7.30 | Epsilon: 0.050 | Time: 5.6s
+Ep  100 | Score:  27 | Best:  38 | Mean(100): 11.80 | Epsilon: 0.050 | Time: 19.4s
+Ep  150 | Score:   6 | Best:  39 | Mean(100): 16.18 | Epsilon: 0.050 | Time: 37.1s
+Ep  200 | Score:  19 | Best:  39 | Mean(100): 14.86 | Epsilon: 0.050 | Time: 55.0s
+Ep  250 | Score:  17 | Best:  39 | Mean(100): 15.15 | Epsilon: 0.050 | Time: 77.8s
+Ep  300 | Score:  23 | Best:  39 | Mean(100): 16.42 | Epsilon: 0.050 | Time: 102.5s
+Ep  350 | Score:   8 | Best:  39 | Mean(100): 16.22 | Epsilon: 0.050 | Time: 127.1s
+Ep  400 | Score:  12 | Best:  39 | Mean(100): 16.26 | Epsilon: 0.050 | Time: 152.5s
+Ep  450 | Score:  17 | Best:  43 | Mean(100): 16.31 | Epsilon: 0.050 | Time: 178.1s
+Ep  500 | Score:  17 | Best:  43 | Mean(100): 15.41 | Epsilon: 0.050 | Time: 200.8s
+Ep  550 | Score:  27 | Best:  43 | Mean(100): 13.29 | Epsilon: 0.050 | Time: 219.1s
+Ep  600 | Score:  22 | Best:  43 | Mean(100): 14.72 | Epsilon: 0.050 | Time: 244.8s
+Ep  650 | Score:   1 | Best:  43 | Mean(100): 16.46 | Epsilon: 0.050 | Time: 268.3s
+Ep  700 | Score:  21 | Best:  43 | Mean(100): 15.14 | Epsilon: 0.050 | Time: 291.0s
+Ep  750 | Score:  21 | Best:  48 | Mean(100): 14.47 | Epsilon: 0.050 | Time: 312.3s
+Ep  800 | Score:   4 | Best:  48 | Mean(100): 15.57 | Epsilon: 0.050 | Time: 337.7s
+Ep  850 | Score:  35 | Best:  48 | Mean(100): 16.83 | Epsilon: 0.050 | Time: 362.9s
+Ep  900 | Score:  21 | Best:  48 | Mean(100): 17.14 | Epsilon: 0.050 | Time: 389.2s
+Ep  950 | Score:  23 | Best:  48 | Mean(100): 17.20 | Epsilon: 0.050 | Time: 415.0s
+Ep 1000 | Score:  18 | Best:  48 | Mean(100): 16.26 | Epsilon: 0.050 | Time: 438.1s
+Training finished in 438.1 seconds.
+Best score achieved: 48
+Best model saved to 'best_snake_dqn.pth' and curve to 'training_dqn_curve.png'.
+=== TRAINING STARTED ===
+Ep    1 | Score:   0 | Best:   0 | Mean(100):  0.00 | Epsilon: 0.978 | Time: 0.0s
+Ep   50 | Score:   0 | Best:   3 | Mean(100):  0.52 | Epsilon: 0.629 | Time: 0.4s
+Ep  100 | Score:   1 | Best:   3 | Mean(100):  0.72 | Epsilon: 0.438 | Time: 0.8s
+Ep  150 | Score:   0 | Best:   3 | Mean(100):  1.07 | Epsilon: 0.329 | Time: 1.1s
+Ep  200 | Score:   3 | Best:   3 | Mean(100):  1.33 | Epsilon: 0.248 | Time: 1.4s
+Ep  250 | Score:   2 | Best:   4 | Mean(100):  1.59 | Epsilon: 0.179 | Time: 1.9s
+Ep  300 | Score:   1 | Best:   4 | Mean(100):  1.66 | Epsilon: 0.134 | Time: 2.2s
+Ep  350 | Score:   2 | Best:   4 | Mean(100):  1.65 | Epsilon: 0.093 | Time: 2.7s
+Ep  400 | Score:   3 | Best:   4 | Mean(100):  1.86 | Epsilon: 0.064 | Time: 3.2s
+Ep  450 | Score:   1 | Best:   4 | Mean(100):  2.14 | Epsilon: 0.050 | Time: 3.9s
+Ep  500 | Score:   0 | Best:   4 | Mean(100):  2.17 | Epsilon: 0.050 | Time: 4.4s
+Ep  550 | Score:   0 | Best:   4 | Mean(100):  2.08 | Epsilon: 0.050 | Time: 4.9s
+Ep  600 | Score:   3 | Best:   4 | Mean(100):  2.22 | Epsilon: 0.050 | Time: 5.4s
+Ep  650 | Score:   3 | Best:   4 | Mean(100):  2.15 | Epsilon: 0.050 | Time: 6.0s
+Ep  700 | Score:   3 | Best:   4 | Mean(100):  1.97 | Epsilon: 0.050 | Time: 6.6s
+Ep  750 | Score:   3 | Best:   4 | Mean(100):  2.01 | Epsilon: 0.050 | Time: 7.1s
+Ep  800 | Score:   3 | Best:   4 | Mean(100):  1.98 | Epsilon: 0.050 | Time: 7.7s
+Ep  850 | Score:   3 | Best:   4 | Mean(100):  2.00 | Epsilon: 0.050 | Time: 8.5s
+Ep  900 | Score:   3 | Best:   4 | Mean(100):  2.18 | Epsilon: 0.050 | Time: 9.3s
+Ep  950 | Score:   3 | Best:   4 | Mean(100):  2.21 | Epsilon: 0.050 | Time: 10.1s
+Ep 1000 | Score:   3 | Best:   4 | Mean(100):  2.24 | Epsilon: 0.050 | Time: 11.0s
+=== TRAINING COMPLETE ===
+Total time: 0.18 minutes
+Best score: 4
+Ep    1 | Score:   0 | Best:   0 | Mean(100):  0.00 | Epsilon: 0.920 | Time: 0.1s
+Ep   50 | Score:  15 | Best:  29 | Mean(100):  6.94 | Epsilon: 0.050 | Time: 5.1s
+Ep  100 | Score:   4 | Best:  36 | Mean(100): 10.20 | Epsilon: 0.050 | Time: 15.2s
+Ep  150 | Score:  11 | Best:  36 | Mean(100): 13.53 | Epsilon: 0.050 | Time: 28.1s
+Ep  200 | Score:   9 | Best:  36 | Mean(100): 14.76 | Epsilon: 0.050 | Time: 46.9s
+Ep  250 | Score:   9 | Best:  42 | Mean(100): 16.57 | Epsilon: 0.050 | Time: 72.1s
+Ep  300 | Score:  12 | Best:  42 | Mean(100): 17.22 | Epsilon: 0.050 | Time: 98.0s
+Ep  350 | Score:  15 | Best:  45 | Mean(100): 16.50 | Epsilon: 0.050 | Time: 122.4s
+Ep  400 | Score:   5 | Best:  48 | Mean(100): 16.06 | Epsilon: 0.050 | Time: 147.2s
+Ep  450 | Score:  18 | Best:  48 | Mean(100): 16.00 | Epsilon: 0.050 | Time: 170.5s
+Ep  500 | Score:  19 | Best:  48 | Mean(100): 15.80 | Epsilon: 0.050 | Time: 194.5s
+Ep  550 | Score:  29 | Best:  48 | Mean(100): 15.85 | Epsilon: 0.050 | Time: 218.7s
+Ep  600 | Score:  19 | Best:  48 | Mean(100): 15.92 | Epsilon: 0.050 | Time: 243.2s
+Ep  650 | Score:   8 | Best:  48 | Mean(100): 16.87 | Epsilon: 0.050 | Time: 270.7s
+Ep  700 | Score:  15 | Best:  48 | Mean(100): 15.92 | Epsilon: 0.050 | Time: 291.9s
+Ep  750 | Score:  14 | Best:  48 | Mean(100): 15.21 | Epsilon: 0.050 | Time: 316.2s
+Ep  800 | Score:   1 | Best:  48 | Mean(100): 15.38 | Epsilon: 0.050 | Time: 338.8s
+Ep  850 | Score:  23 | Best:  48 | Mean(100): 15.93 | Epsilon: 0.050 | Time: 365.0s
+Ep  900 | Score:  29 | Best:  48 | Mean(100): 16.22 | Epsilon: 0.050 | Time: 387.2s
+Ep  950 | Score:  18 | Best:  48 | Mean(100): 15.31 | Epsilon: 0.050 | Time: 410.2s
+Ep 1000 | Score:  30 | Best:  48 | Mean(100): 16.52 | Epsilon: 0.050 | Time: 436.9s
+Training finished in 436.9 seconds.
+Best score achieved: 48
+Saved curve: training_dqn_curve.png
