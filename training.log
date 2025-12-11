@@ -391,3 +391,30 @@ Best score: 26
 Time: 2098.54s
 
 === RL Fine-tuning Phase ===
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 100 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 300 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
+Gen   0: Fitness =  1468.85 (Score ~1) | Time: 11.50s
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 300 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
+=== NEAT Evolution Phase ===
+Starting NEAT evolution: 300 generations
+Population: 50
+Input size: 361 (19x19 grid)
+Max steps: 50 + apples_eaten (max 361)
+Gen   0: Fitness =  1493.77 (Score ~1) | Time: 10.73s
+Gen   1: Fitness =  2474.16 (Score ~2) | Time: 11.17s
+Gen   2: Fitness =  3477.84 (Score ~3) | Time: 12.30s
+Gen   3: Fitness =  2473.02 (Score ~2) | Time: 12.08s
+Gen   4: Fitness =  2469.98 (Score ~2) | Time: 12.16s
+Gen   5: Fitness =  3479.46 (Score ~3) | Time: 11.71s

@@ -4,6 +4,7 @@ import random
 import numpy as np
 from collections import deque
 from snake_ai import SnakeAI
+import time
 
 class ReinforcementTrainer:
     def __init__(self, genome, learning_rate=0.01, discount_factor=0.95, exploration_rate=0.1):
@@ -15,7 +16,7 @@ class ReinforcementTrainer:
         self.min_exploration = 0.01
         
         self.memory = deque(maxlen=1000)  # Smaller memory for faster learning
-        self.batch_size = 16  # Smaller batch for faster updates
+        self.batch_size = 8  # Smaller batch for faster updates
         
         self.episode_count = 0
         self.best_score = 0
@@ -199,7 +200,7 @@ class ReinforcementTrainer:
         
         return best_score
     
-    def train(self, episodes=100, render=True, speed=50, save_interval=10):
+    def train(self, episodes=100, render=True, speed=1000, save_interval=10):
         """Train for multiple episodes"""
         print(f"Starting RL training: {episodes} episodes")
         print(f"Learning rate: {self.learning_rate}, Discount: {self.discount_factor}")
