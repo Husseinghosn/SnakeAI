@@ -127,7 +127,7 @@ class ReinforcementTrainer:
         """Train for one episode and return the final score"""
         from game import SnakeGame
 
-        game = SnakeGame(w=500, h=500)
+        game = SnakeGame(w=380, h=380)
 
         # initialize last head position so calculate_reward can compare moves
         self.last_head_pos = game.snake[0]
