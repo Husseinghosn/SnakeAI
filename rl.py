@@ -17,7 +17,7 @@ class ReinforcementTrainer:
         self.min_exploration = 0.01
         
         self.memory = deque(maxlen=1000)  # Smaller memory for faster learning
-        self.batch_size = 16  # Smaller batch for faster updates
+        self.batch_size = 8  # Smaller batch for faster updates
         
         self.episode_count = 0
         self.best_score = 0
@@ -98,6 +98,23 @@ class ReinforcementTrainer:
             if steps_since_food > 30:
                 reward -= 0.5
         
+        # Reward for moving toward the apple:
+        try:
+            head = game.snake[0]
+            food = game.food
+            if food is not None and self.last_head_pos is not None:
+                # Use Manhattan distance (grid-aligned) as positions are grid-aligned Points
+                prev_dist = abs(self.last_head_pos.x - food.x) + abs(self.last_head_pos.y - food.y)
+                curr_dist = abs(head.x - food.x) + abs(head.y - food.y)
+                if curr_dist < prev_dist:
+                    reward += 1.0   # moved closer
+                elif curr_dist > prev_dist:
+                    reward -= 0.5   # moved away
+                # if unchanged, no additional reward/penalty
+        except Exception:
+            # defensive: don't crash RL training if something unexpected
+            pass
+
         return reward
     
     def train_single_episode(self, render=False, speed=1000):
@@ -125,7 +142,7 @@ class ReinforcementTrainer:
             if score > initial_score:
                 steps_since_food = 0
                 initial_score = score
-                max_steps_without_food = min(50 + score, 361)
+                max_steps_without_food = min(100 + score, 361)
             else:
                 steps_since_food += 1
             
@@ -171,7 +188,7 @@ class ReinforcementTrainer:
         
         return best_score
     
-    def train(self, episodes=100, render=True, speed=50, save_interval=10):
+    def train(self, episodes=100, render=True, speed=1000, save_interval=10):
         """Train for multiple episodes"""
         print(f"Starting RL training: {episodes} episodes")
         print(f"Learning rate: {self.learning_rate}, Discount: {self.discount_factor}")

@@ -36,7 +36,7 @@ class SnakeAI:
             else:  # UP
                 return Direction.RIGHT
     
-    def play_game(self, genome, render=True, speed=50, training=False):
+    def play_game(self, genome, render=True, speed=1000, training=False):
         try:
             game = SnakeGame(w=380, h=380)
         

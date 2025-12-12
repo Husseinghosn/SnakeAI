@@ -194,3 +194,555 @@ Generations: 100
 Population: 50
 RL episodes per genome: 2
 Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 100
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 1000
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 1000
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+Gen   0: Fitness =  2479.48  | Time: 223.63s
+Gen   1: Fitness =  3483.94  | Time: 264.99s
+Gen   2: Fitness =  3490.85  | Time: 318.73s
+Gen   3: Fitness =  3483.53  | Time: 321.10s
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 1000
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+Gen   0: Fitness =  3490.65  | Time: 46.91s
+Gen   1: Fitness =  2481.00  | Time: 52.85s
+Gen   2: Fitness =  1462.62  | Time: 69.93s
+Gen   3: Fitness =  2495.44  | Time: 76.25s
+Gen   4: Fitness =  3483.53  | Time: 74.76s
+Gen   5: Fitness =  2481.00  | Time: 83.69s
+Gen   6: Fitness =  2476.82  | Time: 76.43s
+Gen   7: Fitness =  4489.11  | Time: 69.66s
+Gen   8: Fitness =  4485.37  | Time: 59.88s
+Gen   9: Fitness =  7494.05  | Time: 69.09s
+Gen  10: Fitness =  8499.00  | Time: 73.39s
+Gen  11: Fitness =  7494.80  | Time: 90.64s
+Gen  12: Fitness =  9504.45  | Time: 84.18s
+Gen  13: Fitness =  9503.50  | Time: 71.56s
+Gen  14: Fitness =  4490.65  | Time: 75.12s
+Gen  15: Fitness =  9503.37  | Time: 75.29s
+Gen  16: Fitness =  8499.18  | Time: 74.27s
+Gen  17: Fitness =  8499.02  | Time: 76.00s
+Gen  18: Fitness =  8499.01  | Time: 77.85s
+Gen  19: Fitness =  9503.88  | Time: 71.31s
+Gen  20: Fitness =  9503.64  | Time: 68.56s
+Gen  21: Fitness = 11517.12  | Time: 70.22s
+Gen  22: Fitness = 17521.70  | Time: 71.46s
+Gen  23: Fitness =  7495.45  | Time: 65.08s
+Gen  24: Fitness =  9503.83  | Time: 71.59s
+Gen  25: Fitness =  9503.75  | Time: 63.52s
+Gen  26: Fitness =  8499.34  | Time: 59.40s
+Gen  27: Fitness =  9504.10  | Time: 57.11s
+Gen  28: Fitness = 11511.52  | Time: 61.52s
+Gen  29: Fitness =  8499.49  | Time: 60.83s
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 1000
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+Gen   0: Fitness =  1480.42  | Time: 47.74s
+Gen   1: Fitness =  1475.97  | Time: 65.68s
+Gen   2: Fitness =  1487.54  | Time: 62.30s
+Gen   3: Fitness =  3486.17  | Time: 60.11s
+Gen   4: Fitness =  3488.00  | Time: 56.28s
+Gen   5: Fitness =  3481.29  | Time: 48.48s
+Gen   6: Fitness =  3480.07  | Time: 52.44s
+Gen   7: Fitness =  7492.45  | Time: 51.79s
+Gen   8: Fitness =  3485.97  | Time: 52.40s
+Gen   9: Fitness =  3489.02  | Time: 55.73s
+Gen  10: Fitness =  7493.35  | Time: 56.23s
+Gen  11: Fitness =  8499.21  | Time: 61.18s
+Gen  12: Fitness = 10507.81  | Time: 76.27s
+Gen  13: Fitness =  9503.28  | Time: 77.57s
+Gen  14: Fitness =  8499.25  | Time: 80.20s
+Gen  15: Fitness =  9504.26  | Time: 72.34s
+Gen  16: Fitness =  9504.40  | Time: 66.51s
+Gen  17: Fitness = 11512.23  | Time: 69.42s
+Gen  18: Fitness = 10509.46  | Time: 64.36s
+Gen  19: Fitness = 17518.30  | Time: 55.52s
+Gen  20: Fitness = 10508.47  | Time: 66.48s
+Gen  21: Fitness = 11510.57  | Time: 61.41s
+Gen  22: Fitness = 17517.10  | Time: 48.74s
+Gen  23: Fitness = 19526.51  | Time: 54.87s
+Gen  24: Fitness = 11513.02  | Time: 57.33s
+Gen  25: Fitness = 17518.90  | Time: 54.41s
+Gen  26: Fitness = 18523.58  | Time: 52.65s
+Gen  27: Fitness = 11510.73  | Time: 52.64s
+Gen  28: Fitness = 20535.51  | Time: 52.55s
+Gen  29: Fitness = 10507.32  | Time: 55.16s
+Gen  30: Fitness = 19535.97  | Time: 51.56s
+Gen  31: Fitness = 18520.84  | Time: 59.63s
+Gen  32: Fitness = 11513.73  | Time: 51.92s
+Gen  33: Fitness = 18518.82  | Time: 50.91s
+Gen  34: Fitness = 20523.57  | Time: 46.20s
+Gen  35: Fitness = 20529.39  | Time: 51.83s
+Gen  36: Fitness = 17515.80  | Time: 46.12s
+Gen  37: Fitness = 20538.73  | Time: 48.36s
+Gen  38: Fitness = 19521.87  | Time: 59.23s
+Gen  39: Fitness = 19522.41  | Time: 51.31s
+Gen  40: Fitness = 21538.60  | Time: 44.81s
+Gen  41: Fitness = 25541.52  | Time: 44.27s
+Gen  42: Fitness = 25541.07  | Time: 50.03s
+Gen  43: Fitness = 20527.09  | Time: 48.15s
+Gen  44: Fitness = 21528.83  | Time: 44.26s
+Gen  45: Fitness = 21526.63  | Time: 49.42s
+Gen  46: Fitness = 37556.25  | Time: 45.55s
+Gen  47: Fitness = 24542.87  | Time: 48.48s
+Gen  48: Fitness = 20526.02  | Time: 44.19s
+Gen  49: Fitness = 17512.50  | Time: 47.38s
+Gen  50: Fitness = 21527.48  | Time: 45.25s
+Gen  51: Fitness = 22533.00  | Time: 45.48s
+Gen  52: Fitness = 23540.49  | Time: 44.10s
+Gen  53: Fitness = 23547.20  | Time: 41.00s
+Gen  54: Fitness = 22532.45  | Time: 38.34s
+Gen  55: Fitness = 20526.48  | Time: 46.70s
+Gen  56: Fitness = 19519.68  | Time: 43.34s
+Gen  57: Fitness = 22534.83  | Time: 45.75s
+Gen  58: Fitness = 24539.91  | Time: 48.19s
+Gen  59: Fitness = 26554.83  | Time: 45.88s
+Gen  60: Fitness = 21533.71  | Time: 37.35s
+Gen  61: Fitness = 19517.36  | Time: 40.15s
+Gen  62: Fitness = 22530.80  | Time: 39.02s
+Gen  63: Fitness = 29592.18  | Time: 37.16s
+Gen  64: Fitness = 20524.80  | Time: 44.62s
+Gen  65: Fitness = 21526.63  | Time: 42.97s
+Gen  66: Fitness = 22545.10  | Time: 44.87s
+Gen  67: Fitness = 22534.28  | Time: 46.23s
+Gen  68: Fitness = 21529.67  | Time: 37.26s
+Gen  69: Fitness = 26553.88  | Time: 45.67s
+Gen  70: Fitness = 23543.06  | Time: 40.41s
+Gen  71: Fitness = 37547.75  | Time: 41.43s
+Gen  72: Fitness = 21528.83  | Time: 38.31s
+Gen  73: Fitness = 20522.04  | Time: 43.11s
+Gen  74: Fitness = 19524.60  | Time: 44.43s
+Gen  75: Fitness = 23540.09  | Time: 46.19s
+Gen  76: Fitness = 22533.18  | Time: 47.01s
+Gen  77: Fitness = 24544.77  | Time: 50.38s
+Gen  78: Fitness = 17512.80  | Time: 41.91s
+Gen  79: Fitness = 23540.88  | Time: 46.42s
+Gen  80: Fitness = 25546.01  | Time: 52.36s
+Gen  81: Fitness = 22527.87  | Time: 42.94s
+Gen  82: Fitness = 20528.47  | Time: 48.88s
+Gen  83: Fitness = 21527.81  | Time: 53.42s
+Gen  84: Fitness = 19522.28  | Time: 47.98s
+Gen  85: Fitness = 18509.53  | Time: 45.44s
+Gen  86: Fitness = 20524.65  | Time: 45.59s
+Gen  87: Fitness = 25549.38  | Time: 42.47s
+Gen  88: Fitness = 19520.50  | Time: 44.63s
+Gen  89: Fitness = 21523.77  | Time: 41.19s
+Gen  90: Fitness = 37551.00  | Time: 46.89s
+Gen  91: Fitness = 24541.60  | Time: 58.29s
+Gen  92: Fitness = 24539.07  | Time: 54.55s
+Gen  93: Fitness = 23536.34  | Time: 49.37s
+Gen  94: Fitness = 21522.93  | Time: 47.38s
+Gen  95: Fitness = 21529.84  | Time: 50.16s
+Gen  96: Fitness = 24542.24  | Time: 46.48s
+Gen  97: Fitness = 19520.36  | Time: 50.51s
+Gen  98: Fitness = 37555.25  | Time: 54.27s
+Gen  99: Fitness = 38561.92  | Time: 42.29s
+Gen 100: Fitness = 41574.58  | Time: 47.58s
+Gen 101: Fitness = 40568.77  | Time: 53.38s
+Gen 102: Fitness = 22529.15  | Time: 49.62s
+Gen 103: Fitness = 25543.54  | Time: 53.57s
+Gen 104: Fitness = 24543.71  | Time: 53.94s
+Gen 105: Fitness = 24544.35  | Time: 50.80s
+Gen 106: Fitness = 19514.49  | Time: 44.93s
+Gen 107: Fitness = 23541.08  | Time: 46.97s
+Gen 108: Fitness = 45600.53  | Time: 58.44s
+Gen 109: Fitness = 21523.43  | Time: 52.17s
+Gen 110: Fitness = 20520.82  | Time: 49.34s
+Gen 111: Fitness = 25533.89  | Time: 42.20s
+Gen 112: Fitness = 24559.13  | Time: 43.35s
+Gen 113: Fitness = 37560.00  | Time: 51.91s
+Gen 114: Fitness = 19522.14  | Time: 45.93s
+Gen 115: Fitness = 19518.59  | Time: 49.46s
+Gen 116: Fitness = 18516.91  | Time: 47.41s
+Gen 117: Fitness = 21531.02  | Time: 50.16s
+Gen 118: Fitness = 22535.02  | Time: 41.88s
+Gen 119: Fitness = 20520.97  | Time: 43.57s
+Gen 120: Fitness = 42581.84  | Time: 50.98s
+Gen 121: Fitness = 24544.77  | Time: 51.18s
+Gen 122: Fitness = 21528.99  | Time: 50.46s
+Gen 123: Fitness = 20531.53  | Time: 51.71s
+Gen 124: Fitness = 23540.69  | Time: 50.31s
+Gen 125: Fitness = 20524.34  | Time: 47.80s
+Gen 126: Fitness = 25558.80  | Time: 50.34s
+Gen 127: Fitness = 22534.10  | Time: 53.35s
+Gen 128: Fitness = 25552.74  | Time: 52.57s
+Gen 129: Fitness = 25562.84  | Time: 55.56s
+Gen 130: Fitness = 18517.39  | Time: 49.49s
+Gen 131: Fitness = 10504.67  | Time: 44.40s
+Gen 132: Fitness = 19522.55  | Time: 49.03s
+Gen 133: Fitness = 22529.70  | Time: 47.65s
+Gen 134: Fitness = 38566.38  | Time: 55.67s
+Gen 135: Fitness = 22532.08  | Time: 61.31s
+Gen 136: Fitness = 19521.59  | Time: 39.24s
+Gen 137: Fitness = 20519.90  | Time: 47.59s
+Gen 138: Fitness = 26553.41  | Time: 52.38s
+Gen 139: Fitness = 18517.27  | Time: 45.77s
+Gen 140: Fitness = 24550.05  | Time: 53.59s
+Gen 141: Fitness = 21524.27  | Time: 52.59s
+Gen 142: Fitness = 24542.24  | Time: 63.11s
+Gen 143: Fitness = 24545.83  | Time: 44.37s
+Gen 144: Fitness = 19514.90  | Time: 54.78s
+Gen 145: Fitness = 24539.49  | Time: 59.09s
+Gen 146: Fitness = 18513.10  | Time: 48.24s
+Gen 147: Fitness = 24536.11  | Time: 57.89s
+Gen 148: Fitness = 37567.75  | Time: 53.82s
+Gen 149: Fitness = 24546.67  | Time: 52.34s
+Gen 150: Fitness = 22527.32  | Time: 46.14s
+Gen 151: Fitness = 38570.58  | Time: 48.49s
+Gen 152: Fitness = 19516.13  | Time: 54.98s
+Gen 153: Fitness = 22535.93  | Time: 54.19s
+Gen 154: Fitness = 23534.76  | Time: 60.09s
+Gen 155: Fitness = 21527.81  | Time: 61.01s
+Gen 156: Fitness = 24536.32  | Time: 59.78s
+Gen 157: Fitness = 22530.43  | Time: 52.81s
+Gen 158: Fitness = 23541.47  | Time: 53.20s
+Gen 159: Fitness = 21522.42  | Time: 60.49s
+Gen 160: Fitness = 24544.77  | Time: 51.42s
+Gen 161: Fitness = 22529.88  | Time: 50.38s
+Gen 162: Fitness = 21530.34  | Time: 48.75s
+Gen 163: Fitness = 26554.36  | Time: 49.73s
+Gen 164: Fitness = 21528.99  | Time: 53.16s
+Gen 165: Fitness = 19519.54  | Time: 52.15s
+Gen 166: Fitness = 22526.40  | Time: 48.27s
+Gen 167: Fitness = 21530.01  | Time: 47.83s
+Gen 168: Fitness = 18526.32  | Time: 45.32s
+Gen 169: Fitness = 22531.72  | Time: 51.16s
+Gen 170: Fitness = 22531.17  | Time: 44.12s
+Gen 171: Fitness = 38566.12  | Time: 48.48s
+Gen 172: Fitness = 21525.45  | Time: 51.63s
+Gen 173: Fitness = 21529.84  | Time: 57.15s
+Gen 174: Fitness = 37557.75  | Time: 52.02s
+Gen 175: Fitness = 21527.31  | Time: 52.43s
+Gen 176: Fitness = 23548.19  | Time: 55.85s
+Gen 177: Fitness = 20517.91  | Time: 51.38s
+Gen 178: Fitness = 19517.63  | Time: 55.21s
+Gen 179: Fitness = 18516.08  | Time: 52.55s
+Gen 180: Fitness = 26553.88  | Time: 53.89s
+Gen 181: Fitness = 20527.55  | Time: 61.43s
+Gen 182: Fitness = 20523.42  | Time: 48.52s
+Gen 183: Fitness = 19521.05  | Time: 47.19s
+Gen 184: Fitness = 20519.59  | Time: 47.06s
+Gen 185: Fitness = 22528.23  | Time: 57.90s
+Gen 186: Fitness = 23543.06  | Time: 53.11s
+Gen 187: Fitness = 21525.96  | Time: 46.00s
+Gen 188: Fitness = 26548.66  | Time: 45.68s
+Gen 189: Fitness = 37562.75  | Time: 51.66s
+Gen 190: Fitness = 20521.89  | Time: 47.67s
+Gen 191: Fitness = 25552.30  | Time: 58.08s
+Gen 192: Fitness = 18517.03  | Time: 56.86s
+Gen 193: Fitness = 37559.00  | Time: 45.45s
+Gen 194: Fitness = 39582.91  | Time: 53.15s
+Gen 195: Fitness = 20520.82  | Time: 50.97s
+Gen 196: Fitness = 21527.14  | Time: 61.72s
+Gen 197: Fitness = 24539.91  | Time: 47.03s
+Gen 198: Fitness = 24535.90  | Time: 45.13s
+Gen 199: Fitness = 25543.09  | Time: 56.29s
+Gen 200: Fitness = 38586.32  | Time: 61.09s
+Gen 201: Fitness = 24541.39  | Time: 53.31s
+Gen 202: Fitness = 21525.29  | Time: 56.18s
+Gen 203: Fitness = 22531.72  | Time: 55.99s
+Gen 204: Fitness = 23533.18  | Time: 58.31s
+Gen 205: Fitness = 19517.90  | Time: 58.33s
+Gen 206: Fitness = 37553.75  | Time: 47.91s
+Gen 207: Fitness = 20522.35  | Time: 56.92s
+Gen 208: Fitness = 19520.09  | Time: 53.16s
+Gen 209: Fitness = 22527.87  | Time: 59.16s
+Gen 210: Fitness = 21527.81  | Time: 55.84s
+Gen 211: Fitness = 17513.60  | Time: 59.47s
+Gen 212: Fitness = 23537.53  | Time: 54.96s
+Gen 213: Fitness = 22529.88  | Time: 46.57s
+Gen 214: Fitness = 21530.34  | Time: 48.20s
+Gen 215: Fitness = 22531.53  | Time: 50.12s
+Gen 216: Fitness = 18516.20  | Time: 51.39s
+Gen 217: Fitness = 21528.66  | Time: 47.79s
+Gen 218: Fitness = 38562.71  | Time: 52.83s
+Gen 219: Fitness = 20515.15  | Time: 58.39s
+Gen 220: Fitness = 24545.40  | Time: 45.92s
+Gen 221: Fitness = 23540.29  | Time: 57.38s
+Gen 222: Fitness = 25546.46  | Time: 49.46s
+Gen 223: Fitness = 25546.68  | Time: 63.02s
+Gen 224: Fitness = 20518.98  | Time: 55.08s
+Gen 225: Fitness = 43595.50  | Time: 61.62s
+Gen 226: Fitness = 24548.78  | Time: 52.56s
+Gen 227: Fitness = 24546.88  | Time: 56.00s
+Gen 228: Fitness = 19524.05  | Time: 57.47s
+Gen 229: Fitness = 20518.52  | Time: 57.77s
+Gen 230: Fitness = 24547.73  | Time: 52.13s
+Gen 231: Fitness = 38555.62  | Time: 59.22s
+Gen 232: Fitness = 22533.18  | Time: 53.72s
+Gen 233: Fitness = 26553.88  | Time: 54.66s
+Gen 234: Fitness = 22531.90  | Time: 52.48s
+Gen 235: Fitness = 25547.36  | Time: 58.90s
+Gen 236: Fitness = 23541.08  | Time: 59.52s
+Gen 237: Fitness = 23531.21  | Time: 57.28s
+Gen 238: Fitness = 37557.75  | Time: 58.78s
+Gen 239: Fitness = 21521.07  | Time: 51.47s
+Gen 240: Fitness = 22537.58  | Time: 64.95s
+Gen 241: Fitness = 18516.55  | Time: 49.51s
+Gen 242: Fitness = 21534.73  | Time: 49.46s
+Gen 243: Fitness = 22542.17  | Time: 56.44s
+Gen 244: Fitness = 21533.88  | Time: 60.32s
+Gen 245: Fitness = 26552.22  | Time: 60.69s
+Gen 246: Fitness = 25551.62  | Time: 58.68s
+Gen 247: Fitness = 25551.17  | Time: 58.48s
+Gen 248: Fitness = 24540.33  | Time: 56.75s
+Gen 249: Fitness = 19519.95  | Time: 56.65s
+Gen 250: Fitness = 24539.28  | Time: 49.85s
+Gen 251: Fitness = 23534.37  | Time: 56.24s
+Gen 252: Fitness = 21528.83  | Time: 63.97s
+Gen 253: Fitness = 40573.64  | Time: 60.44s
+Gen 254: Fitness = 37559.25  | Time: 64.55s
+Gen 255: Fitness = 19517.63  | Time: 68.89s
+Gen 256: Fitness = 38551.43  | Time: 58.07s
+Gen 257: Fitness = 23536.54  | Time: 57.73s
+Gen 258: Fitness = 19521.73  | Time: 62.80s
+Gen 259: Fitness = 21525.96  | Time: 53.41s
+Gen 260: Fitness = 22531.17  | Time: 59.55s
+Gen 261: Fitness = 25543.32  | Time: 57.31s
+Gen 262: Fitness = 22527.13  | Time: 69.88s
+Gen 263: Fitness = 38565.60  | Time: 81.87s
+Gen 264: Fitness = 22528.05  | Time: 65.50s
+Gen 265: Fitness = 22536.48  | Time: 73.63s
+Gen 266: Fitness = 23534.17  | Time: 61.49s
+Gen 267: Fitness = 26556.02  | Time: 63.19s
+Gen 268: Fitness = 24539.07  | Time: 61.78s
+Gen 269: Fitness = 23530.42  | Time: 62.58s
+Gen 270: Fitness = 23531.21  | Time: 66.86s
+Gen 271: Fitness = 24544.98  | Time: 67.42s
+Gen 272: Fitness = 19515.85  | Time: 76.76s
+Gen 273: Fitness = 22536.85  | Time: 74.56s
+Gen 274: Fitness = 41579.36  | Time: 68.90s
+Gen 275: Fitness = 23544.04  | Time: 73.89s
+Gen 276: Fitness = 22532.63  | Time: 78.19s
+Gen 277: Fitness = 40594.84  | Time: 73.15s
+Gen 278: Fitness = 22525.48  | Time: 68.67s
+Gen 279: Fitness = 26542.73  | Time: 68.99s
+Gen 280: Fitness = 24546.67  | Time: 62.85s
+Gen 281: Fitness = 38562.97  | Time: 65.82s
+Gen 282: Fitness = 24533.79  | Time: 79.44s
+Gen 283: Fitness = 21550.74  | Time: 82.19s
+Gen 284: Fitness = 23549.97  | Time: 68.39s
+Gen 285: Fitness = 23535.55  | Time: 72.61s
+Gen 286: Fitness = 21532.53  | Time: 70.89s
+Gen 287: Fitness = 23531.80  | Time: 69.85s
+Gen 288: Fitness = 22539.05  | Time: 72.02s
+Gen 289: Fitness = 20525.10  | Time: 68.57s
+Gen 290: Fitness = 23540.49  | Time: 70.97s
+Gen 291: Fitness = 18519.77  | Time: 70.26s
+Gen 292: Fitness = 24546.04  | Time: 65.07s
+Gen 293: Fitness = 23538.91  | Time: 60.01s
+Gen 294: Fitness = 24545.61  | Time: 61.00s
+Gen 295: Fitness = 23536.54  | Time: 66.22s
+Gen 296: Fitness = 37568.25  | Time: 69.35s
+Gen 297: Fitness = 20516.69  | Time: 68.38s
+Gen 298: Fitness = 40571.92  | Time: 73.28s
+Gen 299: Fitness = 38559.82  | Time: 74.93s
+Gen 300: Fitness = 18517.03  | Time: 73.72s
+Gen 301: Fitness = 20526.64  | Time: 63.18s
+Gen 302: Fitness = 23540.29  | Time: 76.28s
+Gen 303: Fitness = 20527.71  | Time: 74.59s
+Gen 304: Fitness = 21526.47  | Time: 63.53s
+Gen 305: Fitness = 11506.23  | Time: 77.71s
+Gen 306: Fitness = 20534.14  | Time: 58.02s
+Gen 307: Fitness = 23536.14  | Time: 64.73s
+Gen 308: Fitness = 22529.52  | Time: 72.49s
+Gen 309: Fitness = 21534.22  | Time: 78.00s
+Gen 310: Fitness = 22533.18  | Time: 76.04s
+Gen 311: Fitness = 21530.01  | Time: 67.36s
+Gen 312: Fitness = 19524.33  | Time: 88.12s
+Gen 313: Fitness = 17510.40  | Time: 79.35s
+Gen 314: Fitness = 21530.85  | Time: 75.48s
+Gen 315: Fitness = 18515.12  | Time: 69.54s
+Gen 316: Fitness = 26552.93  | Time: 65.91s
+Gen 317: Fitness = 22537.03  | Time: 68.81s
+Gen 318: Fitness = 19516.67  | Time: 73.84s
+Gen 319: Fitness = 23534.56  | Time: 73.91s
+Gen 320: Fitness = 20525.87  | Time: 73.82s
+Gen 321: Fitness = 19534.71  | Time: 66.78s
+Gen 322: Fitness = 26555.54  | Time: 77.97s
+Gen 323: Fitness = 22528.60  | Time: 84.11s
+Gen 324: Fitness = 22536.48  | Time: 69.60s
+Gen 325: Fitness = 22531.35  | Time: 73.86s
+Gen 326: Fitness = 20523.42  | Time: 85.05s
+Gen 327: Fitness = 22528.42  | Time: 82.52s
+Gen 328: Fitness = 26544.63  | Time: 81.16s
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 1000
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 50
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 50
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+Gen   0: Fitness =  1480.42  | Time: 58.70s
+Gen   1: Fitness =  2494.30  | Time: 63.14s
+Gen   2: Fitness =  1485.76  | Time: 61.37s
+Gen   3: Fitness =  1482.20  | Time: 59.04s
+Gen   4: Fitness =  2462.76  | Time: 68.68s
+Gen   5: Fitness =  2470.36  | Time: 72.44s
+Gen   6: Fitness =  2475.68  | Time: 49.63s
+Gen   7: Fitness =  1486.65  | Time: 57.94s
+Gen   8: Fitness =  1488.43  | Time: 52.10s
+Gen   9: Fitness =  1486.65  | Time: 52.22s
+Gen  10: Fitness =  1484.87  | Time: 50.27s
+Gen  11: Fitness =  3481.70  | Time: 51.88s
+Gen  12: Fitness =  2484.04  | Time: 44.80s
+Gen  13: Fitness =  2467.32  | Time: 42.11s
+Gen  14: Fitness =  3488.61  | Time: 55.64s
+Gen  15: Fitness =  3480.48  | Time: 55.83s
+Gen  16: Fitness =  3478.04  | Time: 60.74s
+Gen  17: Fitness =  1482.20  | Time: 58.23s
+Gen  18: Fitness =  3482.92  | Time: 74.06s
+Gen  19: Fitness =  3481.90  | Time: 63.37s
+Gen  20: Fitness =  3478.04  | Time: 67.48s
+Gen  21: Fitness =  3489.43  | Time: 56.48s
+Gen  22: Fitness =  3486.99  | Time: 68.56s
+Gen  23: Fitness =  3488.21  | Time: 71.61s
+Gen  24: Fitness =  3479.46  | Time: 67.57s
+Gen  25: Fitness =  3472.55  | Time: 64.67s
+Gen  26: Fitness =  3487.39  | Time: 56.61s
+Gen  27: Fitness =  4485.81  | Time: 58.58s
+Gen  28: Fitness =  4487.24  | Time: 50.28s
+Gen  29: Fitness =  3485.56  | Time: 48.85s
+Gen  30: Fitness =  4487.90  | Time: 46.93s
+Gen  31: Fitness =  4493.07  | Time: 44.37s
+Gen  32: Fitness =  3490.85  | Time: 41.89s
+Gen  33: Fitness =  3484.55  | Time: 37.90s
+Gen  34: Fitness =  2476.82  | Time: 40.51s
+Gen  35: Fitness =  4495.38  | Time: 39.08s
+Gen  36: Fitness =  2480.62  | Time: 41.45s
+Gen  37: Fitness =  4491.42  | Time: 36.03s
+Gen  38: Fitness =  4484.16  | Time: 38.48s
+Gen  39: Fitness =  4484.82  | Time: 40.25s
+Gen  40: Fitness =  3486.58  | Time: 41.19s
+Gen  41: Fitness =  4493.84  | Time: 48.21s
+Gen  42: Fitness =  4489.88  | Time: 39.59s
+Gen  43: Fitness =  3483.53  | Time: 41.48s
+Gen  44: Fitness =  7496.80  | Time: 40.21s
+Gen  45: Fitness =  7495.45  | Time: 41.68s
+Gen  46: Fitness =  9502.77  | Time: 39.35s
+Gen  47: Fitness =  7492.30  | Time: 37.96s
+Gen  48: Fitness =  3492.88  | Time: 32.05s
+Gen  49: Fitness =  9504.07  | Time: 37.65s
+Training completed
+Generations: 50
+Best fitness: 9504.07
+Time: 2569.19s
+Saved: best_snake_final.pkl
+Training completed. Best genome saved to 'best_snake_final.pkl'
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 50
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 50
+Population: 50
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+=== Snake AI Training - Lamarckian Evolution ===
+=== NEAT Evolution Phase ===
+Starting Lamarckian Evolution
+Generations: 50
+Population: 200
+RL episodes per genome: 2
+Method: NEAT evolves structure + RL adjusts weights
+Gen   0: Fitness =  2489.74  | Time: 181.83s
+Gen   1: Fitness =  2477.20  | Time: 240.22s
+Gen   2: Fitness =  2488.98  | Time: 262.01s
+Gen   3: Fitness =  4486.47  | Time: 299.45s
+Gen   4: Fitness =  3490.24  | Time: 276.60s
+Gen   5: Fitness =  7493.60  | Time: 304.15s
+Gen   6: Fitness =  7495.40  | Time: 326.25s
+Gen   7: Fitness =  8499.11  | Time: 342.95s
+Gen   8: Fitness =  8499.08  | Time: 353.42s
+Gen   9: Fitness =  7495.55  | Time: 371.62s
+Gen  10: Fitness =  8499.07  | Time: 346.94s
+Gen  11: Fitness =  9504.83  | Time: 328.19s
+Gen  12: Fitness =  9504.15  | Time: 305.06s
+Gen  13: Fitness = 10509.18  | Time: 280.73s
+Gen  14: Fitness =  9504.61  | Time: 266.68s
+Gen  15: Fitness = 11515.23  | Time: 255.58s
+Gen  16: Fitness = 10507.98  | Time: 252.63s
+Gen  17: Fitness = 17517.60  | Time: 248.36s
+Gen  18: Fitness = 19524.33  | Time: 262.50s
+Gen  19: Fitness = 11510.73  | Time: 257.94s
+Gen  20: Fitness = 17515.40  | Time: 279.08s
+Gen  21: Fitness = 17518.20  | Time: 260.75s
+Gen  22: Fitness = 20520.21  | Time: 292.20s
+Gen  23: Fitness = 23545.03  | Time: 295.94s
+Gen  24: Fitness = 19525.42  | Time: 305.01s
+Gen  25: Fitness = 20530.62  | Time: 282.82s
+Gen  26: Fitness = 18522.87  | Time: 280.51s
+Gen  27: Fitness = 21533.38  | Time: 279.19s
+Gen  28: Fitness = 25550.05  | Time: 284.52s
+Gen  29: Fitness = 21527.31  | Time: 277.04s
+Gen  30: Fitness = 22538.87  | Time: 260.44s
+Gen  31: Fitness = 21531.69  | Time: 252.88s
+Gen  32: Fitness = 22533.37  | Time: 264.97s
+Gen  33: Fitness = 24551.32  | Time: 266.98s
+Gen  34: Fitness = 22530.98  | Time: 257.08s
+Gen  35: Fitness = 23535.35  | Time: 294.72s
+Gen  36: Fitness = 22529.52  | Time: 274.94s
+Gen  37: Fitness = 21519.72  | Time: 270.30s
+Gen  38: Fitness = 46603.81  | Time: 245.97s
+Gen  39: Fitness = 26542.96  | Time: 266.88s
+Gen  40: Fitness = 18519.29  | Time: 253.37s
+Gen  41: Fitness = 20516.53  | Time: 234.20s
+Gen  42: Fitness = 19525.56  | Time: 216.71s
+Gen  43: Fitness = 19521.05  | Time: 246.12s
+Gen  44: Fitness = 22530.07  | Time: 268.70s
+Gen  45: Fitness = 19519.95  | Time: 282.25s
+Gen  46: Fitness = 22529.88  | Time: 275.84s
+Gen  47: Fitness = 18514.65  | Time: 286.70s
+Gen  48: Fitness = 19520.64  | Time: 267.09s
+Gen  49: Fitness = 19523.78  | Time: 273.25s
+Training completed
+Generations: 50
+Best fitness: 46603.81
+Time: 13859.61s
+Saved: best_snake_final.pkl
+Training completed. Best genome saved to 'best_snake_final.pkl'

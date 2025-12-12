@@ -284,6 +284,10 @@ class NEAT:
         self.best_fitness = 0
         self.best_genome = None
         self.best_genome_overall = None
+        self.fitness_history = []
+        self.mean_fitness_history = []
+        self.score_history = []         # Add this
+        self.mean_score_history = []
         
         self.node_counter = self._counter(1000)
         self.innovation_counter = self._counter(10000)
@@ -379,12 +383,20 @@ class NEAT:
     def run_generation(self, fitness_function):
         current_gen_best_fitness = 0
         current_best_genome = None
+        fitnesses = []
+        scores = [] 
         
         for genome in self.population:
             if not genome.validate_genome():
                 genome.fitness = 0.1
+                genome.score = 0
                 continue
-            genome.fitness = fitness_function(genome)
+            # genome.fitness = fitness_function(genome)
+            fitness, score = fitness_function(genome)
+            genome.score = score
+            genome.fitness = fitness
+            fitnesses.append(genome.fitness)
+            scores.append(genome.score)
             
             if genome.fitness > current_gen_best_fitness:
                 current_gen_best_fitness = genome.fitness
@@ -399,7 +411,10 @@ class NEAT:
         self.breed_new_generation()
         
         self.species = [s for s in self.species if s.staleness < self.stale_species]
-        
+        self.fitness_history.append(current_gen_best_fitness)
+        self.mean_fitness_history.append(sum(fitnesses) / len(fitnesses) if fitnesses else 0)
+        self.score_history.append(max(scores) if scores else 0)  
+        self.mean_score_history.append(sum(scores) / len(scores) if scores else 0) 
         return current_gen_best_fitness
         
     def save_best(self, filename):

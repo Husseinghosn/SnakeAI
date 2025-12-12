@@ -5,6 +5,9 @@ from neat import NEAT
 from rl import ReinforcementTrainer
 import logging
 import logging.handlers
+import matplotlib
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 logger = logging.getLogger("snake_train")
 logger.setLevel(logging.INFO)
 
@@ -18,12 +21,38 @@ if not logger.handlers:
     logger.addHandler(fh)
     logger.addHandler(ch)
 
-def run_lamarckian_evolution(generations=100, rl_episodes_per_genome=2):
+def plot_fitness(fitnesses, mean_fitnesses, save_path: str | None = None):
+    plt.figure(figsize=(8, 5))
+    plt.title("Snake Training - Fitness")
+    plt.xlabel("Generation")
+    plt.ylabel("Fitness")
+    plt.plot(fitnesses, label="Best Fitness")
+    plt.plot(mean_fitnesses, label="Mean Fitness")
+    plt.legend()
+    plt.grid(True)
+    if save_path is not None:
+        plt.savefig(save_path, bbox_inches="tight")
+    plt.close()
+
+def plot_scores(scores, mean_scores, save_path: str | None = None):
+    plt.figure(figsize=(8, 5))
+    plt.title("Snake Training - Score (Food Collected)")
+    plt.xlabel("Generation")
+    plt.ylabel("Score")
+    plt.plot(scores, label="Best Score")
+    plt.plot(mean_scores, label="Mean Score")
+    plt.legend()
+    plt.grid(True)
+    if save_path is not None:
+        plt.savefig(save_path, bbox_inches="tight")
+    plt.close()
+
+def run_lamarckian_evolution(generations=50, rl_episodes_per_genome=2):
     """Run NEAT evolution with Lamarckian weight updates via RL"""
     logger.info("=== Snake AI Training - Lamarckian Evolution ===")
     logger.info("=== NEAT Evolution Phase ===")
     snake_ai = SnakeAI()
-    neat = NEAT(snake_ai.input_size, snake_ai.output_size, population_size=50)
+    neat = NEAT(snake_ai.input_size, snake_ai.output_size, population_size=200)
     
     def fitness_function(genome):
         trainer = ReinforcementTrainer(
@@ -39,7 +68,7 @@ def run_lamarckian_evolution(generations=100, rl_episodes_per_genome=2):
             genome.connections[conn_key].weight = trainer.genome.connections[conn_key].weight
         score, total_steps, four_left_turns, four_right_turns, over_25_same_dir_count = snake_ai.play_game(genome, render=False, training=True)
         fitness = snake_ai.calculate_fitness(score, total_steps, 0, 50 + score, four_left_turns, four_right_turns, over_25_same_dir_count)
-        return fitness
+        return fitness, score
     
     logger.info(f"Starting Lamarckian Evolution")
     logger.info(f"Generations: {generations}")
@@ -53,6 +82,16 @@ def run_lamarckian_evolution(generations=100, rl_episodes_per_genome=2):
         gen_start_time = time.time()
         current_gen_best_fitness = neat.run_generation(fitness_function)
         
+        if gen == 0 or (gen + 1) % 5 == 0:
+            plot_fitness(
+                neat.fitness_history,
+                neat.mean_fitness_history,
+                save_path=f"./plots/fitness_gen{gen+1}.png")
+            plot_scores(
+                neat.score_history,
+                neat.mean_score_history,
+                save_path=f"./plots/score_gen{gen+1}.png")
+
         logger.info(f"Gen {gen:3d}: Fitness = {current_gen_best_fitness:8.2f}  | Time: {time.time() - gen_start_time:.2f}s")
         
         if neat.best_genome_overall and gen % 10 == 0:
@@ -68,7 +107,7 @@ def run_lamarckian_evolution(generations=100, rl_episodes_per_genome=2):
     logger.info(f"Saved: best_snake_final.pkl")
 
 def main():
-    generations = 100
+    generations = 50
     rl_episodes_per_genome = 2
     
     run_lamarckian_evolution(generations, rl_episodes_per_genome)

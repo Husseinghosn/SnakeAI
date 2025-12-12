@@ -70,11 +70,11 @@ def main():
     choice = input("Choose model to test (1-3): ")
     
     if choice == "1":
-        filename = "best_snake_final.pkl"
+        filename = "best_snake_current.pkl"
     elif choice == "2":
         filename = "rl_snake_final.pkl"
     elif choice == "3":
-        filename = "snake_ai_final.pkl"
+        filename = "best_snake_final.pkl"
     else:
         print("Invalid choice")
         return
